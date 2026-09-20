@@ -1,0 +1,2 @@
+# Keep packaged files byte-identical on every checkout.
+* -text

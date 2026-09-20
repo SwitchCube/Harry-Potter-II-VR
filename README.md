@@ -7,12 +7,13 @@ An unofficial VR mod for the **2002 Windows PC version of Harry Potter and the C
 **Requirements:** Your own working game installation, Windows 10/11 (x64), SteamVR, and a compatible headset with two controllers. The supported engine build is `HPCos_021009_1205-1`; the launcher checks compatibility. New mod menus support English and German.
 
 **Install**
-1. Download [HP2VR v1.0.2](HP2VR-1.0.2.zip).
+
+1. Download `HP2VR-1.0.2.zip` from [Releases](https://github.com/SwitchCube/Harry-Potter-II-VR/releases/latest).
 2. Extract it into the game installation folder. `Start-HP2VR.cmd` must be **next to** the existing `System` folder, not inside it.
 3. For VR, start SteamVR and connect your headset.
 4. Run `Start-HP2VR.cmd` and choose **Flat** or **VR**. You can point your desktop shortcut to this file.
 
-Already using v1.0 or v1.0.1? Extract the [update ZIP](HP2VR-1.0.2-Update.zip) into the same folder with the game closed. It preserves settings and saves.
+**Updates:** Future versions will appear under Releases. Close the game and follow the update instructions for that release.
 
 **Problems?** Run `Diagnose-HP2VR.cmd` and attach the generated ZIP to an issue with a short description and your headset model. Reports remove personal paths and omit saved games; nothing is uploaded automatically.
 
@@ -29,12 +30,13 @@ Eine inoffizielle VR-Mod für die **Windows-PC-Version von Harry Potter und die 
 **Voraussetzungen:** Eine eigene, funktionierende Spielinstallation, Windows 10/11 (x64), SteamVR und ein kompatibles Headset mit zwei Controllern. Unterstützt wird die Engine-Version `HPCos_021009_1205-1`; der Starter prüft die Kompatibilität. Neue Mod-Menüs unterstützen Deutsch und Englisch.
 
 **Installation**
-1. [HP2VR v1.0.2 herunterladen](HP2VR-1.0.2.zip).
+
+1. `HP2VR-1.0.2.zip` unter [Releases](https://github.com/SwitchCube/Harry-Potter-II-VR/releases/latest) herunterladen.
 2. In den Installationsordner des Spiels entpacken. `Start-HP2VR.cmd` muss **neben** dem vorhandenen Ordner `System` liegen, nicht darin.
 3. Für VR zuerst SteamVR starten und das Headset verbinden.
 4. `Start-HP2VR.cmd` öffnen und **Flat** oder **VR** wählen. Dein Desktop-Symbol kannst du auf diese Datei umstellen.
 
-Bereits v1.0 oder v1.0.1 installiert? Das [Update-ZIP](HP2VR-1.0.2-Update.zip) bei geschlossenem Spiel in denselben Ordner entpacken. Einstellungen und Spielstände bleiben erhalten.
+**Updates:** Künftige Versionen erscheinen unter Releases. Beende das Spiel und befolge die Update-Anleitung der jeweiligen Version.
 
 **Probleme?** `Diagnose-HP2VR.cmd` starten und die erzeugte ZIP zusammen mit einer kurzen Beschreibung und deinem Headset-Modell an ein Issue anhängen. Persönliche Pfade werden entfernt, Spielstände nicht eingepackt. Es erfolgt kein automatischer Upload.
 

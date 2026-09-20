@@ -1,0 +1,25 @@
+HP2VR v1.0 - bundled components
+
+OpenVR SDK loader (Valve Software)
+https://github.com/ValveSoftware/openvr
+License: licenses/OpenVR.txt
+
+MinHook (Tsuda Kageyu and contributors), statically compiled into the mod
+https://github.com/TsudaKageyu/minhook
+License: licenses/MinHook.txt
+
+Python 3.13.13 x86 embeddable runtime (Python Software Foundation)
+https://www.python.org/downloads/release/python-31313/
+https://docs.python.org/3.13/using/windows.html#the-embeddable-package
+License and component notices: python/LICENSE.txt
+Bundled subset: interpreter, standard library archive, ctypes and required DLLs.
+No pip, installer, developer tools, network client or additional Python packages.
+The launcher does not download or install dependencies on the user's PC.
+
+Native runtime support compiled with Zig 0.15.2, LLVM libc++/libc++abi/libunwind
+and MinGW-w64: licenses/Zig.txt, LLVM-*.txt and MinGW.txt.
+These compilers and SDKs are not shipped in the runtime package.
+
+Game files are not included. The private Large Address Aware runtime image is
+created locally from the user's verified original Game.exe; the original is
+never modified. SteamVR itself is not included and is installed separately.

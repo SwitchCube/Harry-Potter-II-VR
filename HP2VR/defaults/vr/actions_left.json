@@ -1,0 +1,175 @@
+{
+  "action_sets": [
+    {
+      "name": "/actions/game",
+      "usage": "single"
+    }
+  ],
+  "actions": [
+    {
+      "name": "/actions/game/in/move",
+      "type": "vector2",
+      "requirement": "suggested"
+    },
+    {
+      "name": "/actions/game/in/turn",
+      "type": "vector2",
+      "requirement": "suggested"
+    },
+    {
+      "name": "/actions/game/in/jump",
+      "type": "boolean",
+      "requirement": "suggested"
+    },
+    {
+      "name": "/actions/game/in/cast",
+      "type": "boolean",
+      "requirement": "suggested"
+    },
+    {
+      "name": "/actions/game/in/menu",
+      "type": "boolean",
+      "requirement": "suggested"
+    },
+    {
+      "name": "/actions/game/in/recenter",
+      "type": "boolean",
+      "requirement": "suggested"
+    },
+    {
+      "name": "/actions/game/in/confirm",
+      "type": "boolean",
+      "requirement": "suggested"
+    },
+    {
+      "name": "/actions/game/in/potion",
+      "type": "boolean",
+      "requirement": "suggested"
+    },
+    {
+      "name": "/actions/game/in/left_hand",
+      "type": "pose",
+      "requirement": "suggested"
+    },
+    {
+      "name": "/actions/game/in/right_hand",
+      "type": "pose",
+      "requirement": "suggested"
+    },
+    {
+      "name": "/actions/game/in/walk",
+      "type": "boolean",
+      "requirement": "suggested"
+    },
+    {
+      "name": "/actions/game/in/map",
+      "type": "boolean",
+      "requirement": "suggested"
+    },
+    {
+      "name": "/actions/game/in/boost",
+      "type": "boolean",
+      "requirement": "suggested"
+    },
+    {
+      "name": "/actions/game/out/haptic",
+      "type": "vibration"
+    },
+    {
+      "name": "/actions/game/in/left_grip",
+      "type": "pose",
+      "requirement": "suggested"
+    },
+    {
+      "name": "/actions/game/in/right_grip",
+      "type": "pose",
+      "requirement": "suggested"
+    },
+    {
+      "name": "/actions/game/in/quicksave",
+      "type": "boolean",
+      "requirement": "suggested"
+    },
+    {
+      "name": "/actions/game/in/show_health",
+      "type": "boolean",
+      "requirement": "suggested"
+    },
+    {
+      "name": "/actions/game/out/haptic_left",
+      "type": "vibration"
+    },
+    {
+      "name": "/actions/game/out/haptic_right",
+      "type": "vibration"
+    }
+  ],
+  "default_bindings": [
+    {
+      "controller_type": "oculus_touch",
+      "binding_url": "bindings_touch_left.json"
+    },
+    {
+      "controller_type": "knuckles",
+      "binding_url": "bindings_index_left.json"
+    },
+    {
+      "controller_type": "pico_controller",
+      "binding_url": "bindings_pico_left.json"
+    },
+    {
+      "controller_type": "vive_focus3_controller",
+      "binding_url": "bindings_focus3_left.json"
+    }
+  ],
+  "localization": [
+    {
+      "language_tag": "en_US",
+      "/actions/game": "Harry Potter II VR",
+      "/actions/game/in/move": "Move",
+      "/actions/game/in/turn": "Turn",
+      "/actions/game/in/jump": "Jump",
+      "/actions/game/in/cast": "Cast",
+      "/actions/game/in/menu": "Menu",
+      "/actions/game/in/recenter": "Recenter",
+      "/actions/game/in/confirm": "Confirm",
+      "/actions/game/in/potion": "Potion",
+      "/actions/game/in/left_hand": "Left Hand",
+      "/actions/game/in/right_hand": "Right Hand",
+      "/actions/game/in/walk": "Walk / broom brake",
+      "/actions/game/in/map": "Map",
+      "/actions/game/in/boost": "Broom boost",
+      "/actions/game/out/haptic": "Wand feedback",
+      "/actions/game/in/left_grip": "Left grip pose",
+      "/actions/game/in/right_grip": "Right grip pose",
+      "/actions/game/in/quicksave": "Save VR checkpoint",
+      "/actions/game/in/show_health": "Hold left grip to show health",
+      "/actions/game/out/haptic_left": "Nearby flyer left",
+      "/actions/game/out/haptic_right": "Nearby flyer right"
+    },
+    {
+      "language_tag": "de_DE",
+      "/actions/game": "Harry Potter II VR",
+      "/actions/game/in/move": "Laufen",
+      "/actions/game/in/turn": "Drehen",
+      "/actions/game/in/jump": "Springen",
+      "/actions/game/in/cast": "Zaubern",
+      "/actions/game/in/menu": "Men\u00fc",
+      "/actions/game/in/recenter": "Blick zentrieren",
+      "/actions/game/in/confirm": "Best\u00e4tigen",
+      "/actions/game/in/potion": "Heiltrank",
+      "/actions/game/in/left_hand": "Linke Hand",
+      "/actions/game/in/right_hand": "Rechte Hand",
+      "/actions/game/in/walk": "Gehen / Besenbremse",
+      "/actions/game/in/map": "Karte",
+      "/actions/game/in/boost": "Besen-Boost",
+      "/actions/game/out/haptic": "Stab-R\u00fcckmeldung",
+      "/actions/game/in/left_grip": "Linker Griffpunkt",
+      "/actions/game/in/right_grip": "Rechter Griffpunkt",
+      "/actions/game/in/quicksave": "Zus\u00e4tzlich speichern",
+      "/actions/game/in/show_health": "Handanzeige halten",
+      "/actions/game/out/haptic_left": "Flieger links",
+      "/actions/game/out/haptic_right": "Flieger rechts"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+Controller profiles / Controllerprofile - v1.0
+
+Included: Quest/Rift Touch (oculus_touch), Valve Index (knuckles), Pico
+(pico_controller), Vive Focus 3 (vive_focus3_controller), each for right- and
+left-handed play. Default right-handed controls are listed in README-EN/DE.
+Touch has been tested in a headset. Index, Pico and Focus 3 mappings have been
+checked against SteamVR driver input profiles, but NOT physically tested.
+
+Index has A/B on each hand. The mod's logical X/Y correspond to left A/B.
+Grip actions use an analog threshold on Index/Pico/Focus 3. Hand poses use
+each driver's handgrip/tip or aim definitions. If alignment feels wrong,
+adjust WandPitchDegrees/YawDegrees/RollDegrees and WandOffset*Metres in the
+user data config/hp2vr.ini. The shipped angle was calibrated with Touch.
+
+Other controller types need a custom SteamVR input binding. The full gameplay
+requires two tracked controllers with two 2D inputs and enough buttons. Original
+Vive wands have no matching default in v1.0. Do not assume plug-and-play support.
+
+Enthalten: Touch, Index, Pico und Vive Focus 3, jeweils rechts-/linkshändig.
+Touch ist in der Brille geprüft. Die anderen Belegungen sind anhand der
+SteamVR-Treiberprofile geprüft, aber noch nicht an diesen Geräten getestet.
+Index: X/Y der Mod entsprechen A/B an der linken Hand. Bei abweichendem
+Stabwinkel kann config/hp2vr.ini im Benutzerdatenordner angepasst werden.
+Andere Controller benötigen eine eigene SteamVR-Belegung; Vive-Wands haben
+in v1.0 keine fertige Standardbelegung.

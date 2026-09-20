@@ -1,0 +1,149 @@
+{
+  "controller_type": "knuckles",
+  "name": "HP2 VR index_left",
+  "description": "Default HP2VR actions. Adjust physical inputs in SteamVR if required.",
+  "bindings": {
+    "/actions/game": {
+      "sources": [
+        {
+          "path": "/user/hand/right/input/thumbstick",
+          "mode": "joystick",
+          "inputs": {
+            "position": {
+              "output": "/actions/game/in/move"
+            },
+            "click": {
+              "output": "/actions/game/in/recenter"
+            }
+          }
+        },
+        {
+          "path": "/user/hand/left/input/thumbstick",
+          "mode": "joystick",
+          "inputs": {
+            "position": {
+              "output": "/actions/game/in/turn"
+            },
+            "click": {
+              "output": "/actions/game/in/quicksave"
+            }
+          }
+        },
+        {
+          "path": "/user/hand/left/input/a",
+          "mode": "button",
+          "inputs": {
+            "click": {
+              "output": "/actions/game/in/jump"
+            }
+          }
+        },
+        {
+          "path": "/user/hand/left/input/b",
+          "mode": "button",
+          "inputs": {
+            "click": {
+              "output": "/actions/game/in/menu"
+            }
+          }
+        },
+        {
+          "path": "/user/hand/right/input/a",
+          "mode": "button",
+          "inputs": {
+            "click": {
+              "output": "/actions/game/in/confirm"
+            }
+          }
+        },
+        {
+          "path": "/user/hand/right/input/b",
+          "mode": "button",
+          "inputs": {
+            "click": {
+              "output": "/actions/game/in/potion"
+            }
+          }
+        },
+        {
+          "path": "/user/hand/left/input/trigger",
+          "mode": "trigger",
+          "inputs": {
+            "click": {
+              "output": "/actions/game/in/cast"
+            }
+          }
+        },
+        {
+          "path": "/user/hand/right/input/grip",
+          "mode": "button",
+          "inputs": {
+            "click": {
+              "output": "/actions/game/in/boost"
+            }
+          },
+          "parameters": {
+            "force_input": "force",
+            "click_activate_threshold": "0.65",
+            "click_deactivate_threshold": "0.4"
+          }
+        },
+        {
+          "path": "/user/hand/right/input/trigger",
+          "mode": "trigger",
+          "inputs": {
+            "click": {
+              "output": "/actions/game/in/map"
+            }
+          }
+        },
+        {
+          "path": "/user/hand/left/input/grip",
+          "mode": "button",
+          "inputs": {
+            "click": {
+              "output": "/actions/game/in/show_health"
+            }
+          },
+          "parameters": {
+            "force_input": "force",
+            "click_activate_threshold": "0.65",
+            "click_deactivate_threshold": "0.4"
+          }
+        }
+      ],
+      "poses": [
+        {
+          "path": "/user/hand/left/pose/tip",
+          "output": "/actions/game/in/left_hand"
+        },
+        {
+          "path": "/user/hand/right/pose/tip",
+          "output": "/actions/game/in/right_hand"
+        },
+        {
+          "path": "/user/hand/left/pose/handgrip",
+          "output": "/actions/game/in/left_grip"
+        },
+        {
+          "path": "/user/hand/right/pose/handgrip",
+          "output": "/actions/game/in/right_grip"
+        }
+      ],
+      "haptics": [
+        {
+          "output": "/actions/game/out/haptic",
+          "path": "/user/hand/left/output/haptic"
+        },
+        {
+          "output": "/actions/game/out/haptic_left",
+          "path": "/user/hand/left/output/haptic"
+        },
+        {
+          "output": "/actions/game/out/haptic_right",
+          "path": "/user/hand/right/output/haptic"
+        }
+      ]
+    }
+  }
+}
