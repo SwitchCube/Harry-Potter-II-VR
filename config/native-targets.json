@@ -1,0 +1,657 @@
+{
+  "targets": [
+    {
+      "label": "scriptedtick",
+      "module": "Engine.dll",
+      "symbol": "?Tick@UScriptedTexture@@UAEXM@Z",
+      "rva": 1206144,
+      "prefix": "558bec6aff685001471064a10000000050648925",
+      "sha256": "efa56c753fe306c2ad2744c82e20258da39df9ce51b3b415d476f8282ae1a189",
+      "image_base": 271581184,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "viewportmessage",
+      "module": "WinDrv.dll",
+      "symbol": "?ViewportWndProc@UWindowsViewport@@QAEJIIJ@Z",
+      "rva": 44288,
+      "prefix": "558bec6aff68a01b111164a10000000050648925",
+      "sha256": "c886ecd1a0f17e25d0fa54e57f41485ef2aa61ba65231eb3c5aced9c60aad302",
+      "image_base": 286261248,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "viewportwindow",
+      "module": "WinDrv.dll",
+      "symbol": "?GetWindow@UWindowsViewport@@UAEPAXXZ",
+      "rva": 38304,
+      "prefix": "8b81040100008b4004c3909090909090cccccccc",
+      "sha256": "c886ecd1a0f17e25d0fa54e57f41485ef2aa61ba65231eb3c5aced9c60aad302",
+      "image_base": 286261248,
+      "relocations": []
+    },
+    {
+      "label": "audioplay",
+      "module": "ALAudio.dll",
+      "symbol": "?PlaySound@UALAudioSubsystem@@UAEHPAVAActor@@HPAVUSound@@VFVector@@MMMHMM@Z",
+      "rva": 16624,
+      "prefix": "558bec6aff68228d001064a10000000050648925",
+      "sha256": "01e4a106d8f7a6cc5d81d41f62664a8b90d73c28431bd02a1fd9ac4804dd5803",
+      "image_base": 268435456,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "audiostop",
+      "module": "ALAudio.dll",
+      "symbol": "?StopSoundSource@UALAudioSubsystem@@QAEXH@Z",
+      "rva": 28160,
+      "prefix": "8b4424048d1440c1e2032bd08b41708d04908b10",
+      "sha256": "01e4a106d8f7a6cc5d81d41f62664a8b90d73c28431bd02a1fd9ac4804dd5803",
+      "image_base": 268435456,
+      "relocations": []
+    },
+    {
+      "label": "audioupdate",
+      "module": "ALAudio.dll",
+      "symbol": "?Update@UALAudioSubsystem@@UAEXPAUFSceneNode@@@Z",
+      "rva": 21200,
+      "prefix": "558bec6aff68d98d001064a10000000050648925",
+      "sha256": "01e4a106d8f7a6cc5d81d41f62664a8b90d73c28431bd02a1fd9ac4804dd5803",
+      "image_base": 268435456,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "soundduration",
+      "module": "Engine.dll",
+      "symbol": "?GetDuration@USound@@UAEMXZ",
+      "rva": 365568,
+      "prefix": "568bf1d94668d81d98454710dfe0f6c401740b8d",
+      "sha256": "efa56c753fe306c2ad2744c82e20258da39df9ce51b3b415d476f8282ae1a189",
+      "image_base": 271581184,
+      "relocations": [
+        8
+      ]
+    },
+    {
+      "label": "childframe",
+      "module": "Render.dll",
+      "symbol": "?CreateChildFrame@URender@@UAEPAUFSceneNode@@PAU2@PAVFSpanBuffer@@PAVULevel@@HHMABVFPlane@@ABVFCoords@@PAUFScreenBounds@@@Z",
+      "rva": 131296,
+      "prefix": "558bec6aff68b273b31064a10000000050648925",
+      "sha256": "eb71bc45dad3b744b9155f37e1ba59119a31743fc74a7fb8cb4dafa93797755a",
+      "image_base": 279969792,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "applyanim",
+      "module": "Engine.dll",
+      "symbol": "?ApplyAnim@USkeletalMesh@@ABEXPAVAActor@@PAUCFSkelHeader@1@_N@Z",
+      "rva": 1221920,
+      "prefix": "558bec6aff68f003471064a10000000050648925",
+      "sha256": "efa56c753fe306c2ad2744c82e20258da39df9ce51b3b415d476f8282ae1a189",
+      "image_base": 271581184,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "farmove",
+      "module": "Engine.dll",
+      "symbol": "?FarMoveActor@ULevel@@UAEHPAVAActor@@VFVector@@HH@Z",
+      "rva": 735296,
+      "prefix": "558bec6aff68f0ce461064a10000000050648925",
+      "sha256": "efa56c753fe306c2ad2744c82e20258da39df9ce51b3b415d476f8282ae1a189",
+      "image_base": 271581184,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "indexedobject",
+      "module": "Core.dll",
+      "symbol": "?GetIndexedObject@UObject@@SAPAV1@H@Z",
+      "rva": 388400,
+      "prefix": "8b44240485c07c123b05946a25107d0a8b0d906a",
+      "sha256": "f6ad0a5fb348d868cb7499fdd727d3f6034acf0d8ba3795ae78809893b4d5249",
+      "image_base": 269484032,
+      "relocations": [
+        10
+      ]
+    },
+    {
+      "label": "destroyactor",
+      "module": "Engine.dll",
+      "symbol": "?DestroyActor@ULevel@@UAEHPAVAActor@@H@Z",
+      "rva": 724256,
+      "prefix": "558bec6aff6820ce461064a10000000050648925",
+      "sha256": "efa56c753fe306c2ad2744c82e20258da39df9ce51b3b415d476f8282ae1a189",
+      "image_base": 271581184,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "viewportexec",
+      "module": "WinDrv.dll",
+      "symbol": "?Exec@UWindowsViewport@@UAEHPBGAAVFOutputDevice@@@Z",
+      "rva": 32400,
+      "prefix": "558bec6aff68af1a111164a10000000050648925",
+      "sha256": "c886ecd1a0f17e25d0fa54e57f41485ef2aa61ba65231eb3c5aced9c60aad302",
+      "image_base": 286261248,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "exec",
+      "module": "Engine.dll",
+      "symbol": "?Exec@UGameEngine@@UAEHPBGAAVFOutputDevice@@@Z",
+      "rva": 663792,
+      "prefix": "558bec6aff6819c5461064a10000000050648925",
+      "sha256": "efa56c753fe306c2ad2744c82e20258da39df9ce51b3b415d476f8282ae1a189",
+      "image_base": 271581184,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "unlock",
+      "module": "D3DDrv.dll",
+      "symbol": "?Unlock@UD3DRenderDevice@@UAEXH@Z",
+      "rva": 14512,
+      "prefix": "558bec6aff68d082011064a10000000050648925",
+      "sha256": "412078c350464c4b860893369bec733084b91f11a5e235026bf7ebf777644f02",
+      "image_base": 268435456,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "loadmap",
+      "module": "Engine.dll",
+      "symbol": "?LoadMap@UGameEngine@@UAEPAVULevel@@ABVFURL@@PAVUPendingLevel@@PBV?$TMap@VFString@@V1@@@AAVFString@@@Z",
+      "rva": 676912,
+      "prefix": "558bec6aff68f0c9461064a10000000050648925",
+      "sha256": "efa56c753fe306c2ad2744c82e20258da39df9ce51b3b415d476f8282ae1a189",
+      "image_base": 271581184,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "preprocess",
+      "module": "Engine.dll",
+      "symbol": "?PreProcess@UInput@@UAEHW4EInputKey@@W4EInputAction@@M@Z",
+      "rva": 717360,
+      "prefix": "8b44240848742983e80275408b4424048a9408b0",
+      "sha256": "efa56c753fe306c2ad2744c82e20258da39df9ce51b3b415d476f8282ae1a189",
+      "image_base": 271581184,
+      "relocations": []
+    },
+    {
+      "label": "readinput",
+      "module": "Engine.dll",
+      "symbol": "?ReadInput@UInput@@UAEXMAAVFOutputDevice@@@Z",
+      "rva": 718336,
+      "prefix": "558bec6aff68c0cd461064a10000000050648925",
+      "sha256": "efa56c753fe306c2ad2744c82e20258da39df9ce51b3b415d476f8282ae1a189",
+      "image_base": 271581184,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "inputevent",
+      "module": "Engine.dll",
+      "symbol": "?InputEvent@UGameEngine@@UAEHPAVUViewport@@W4EInputKey@@W4EInputAction@@M@Z",
+      "rva": 705728,
+      "prefix": "558bec6aff6841cc461064a10000000050648925",
+      "sha256": "efa56c753fe306c2ad2744c82e20258da39df9ce51b3b415d476f8282ae1a189",
+      "image_base": 271581184,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "keyname",
+      "module": "Engine.dll",
+      "symbol": "?GetKeyName@UInput@@UBEPBGW4EInputKey@@@Z",
+      "rva": 719792,
+      "prefix": "558bec6aff68e0cd461064a10000000050648925",
+      "sha256": "efa56c753fe306c2ad2744c82e20258da39df9ce51b3b415d476f8282ae1a189",
+      "image_base": 271581184,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "internal",
+      "module": "Core.dll",
+      "symbol": "?ProcessInternal@UObject@@QAEXAAUFFrame@@QAX@Z",
+      "rva": 280448,
+      "prefix": "558bec81ec0804000053568b7508578bf96a008b",
+      "sha256": "f6ad0a5fb348d868cb7499fdd727d3f6034acf0d8ba3795ae78809893b4d5249",
+      "image_base": 269484032,
+      "relocations": []
+    },
+    {
+      "label": "line",
+      "module": "Engine.dll",
+      "symbol": "?SingleLineCheck@ULevel@@UAEHAAUFCheckResult@@PAVAActor@@ABVFVector@@2KV4@E@Z",
+      "rva": 746240,
+      "prefix": "558bec6aff6850cf461064a10000000050648925",
+      "sha256": "efa56c753fe306c2ad2744c82e20258da39df9ce51b3b415d476f8282ae1a189",
+      "image_base": 271581184,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "tick",
+      "module": "Engine.dll",
+      "symbol": "?Tick@UGameEngine@@UAEXM@Z",
+      "rva": 694544,
+      "prefix": "558bec6aff681ecb461064a10000000050648925",
+      "sha256": "efa56c753fe306c2ad2744c82e20258da39df9ce51b3b415d476f8282ae1a189",
+      "image_base": 271581184,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "draw",
+      "module": "Engine.dll",
+      "symbol": "?Draw@UGameEngine@@UAEXPAVUViewport@@HPAEPAH@Z",
+      "rva": 690848,
+      "prefix": "558bec6aff6828ca461064a10000000050648925",
+      "sha256": "efa56c753fe306c2ad2744c82e20258da39df9ce51b3b415d476f8282ae1a189",
+      "image_base": 271581184,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "destroy",
+      "module": "Engine.dll",
+      "symbol": "?Destroy@UGameEngine@@UAEXXZ",
+      "rva": 663008,
+      "prefix": "558bec6aff6840c4461064a10000000050648925",
+      "sha256": "efa56c753fe306c2ad2744c82e20258da39df9ce51b3b415d476f8282ae1a189",
+      "image_base": 271581184,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "size",
+      "module": "Engine.dll",
+      "symbol": "?ComputeRenderSize@FSceneNode@@QAEXXZ",
+      "rva": 568736,
+      "prefix": "558bec6aff68d0b6461064a10000000050648925",
+      "sha256": "efa56c753fe306c2ad2744c82e20258da39df9ce51b3b415d476f8282ae1a189",
+      "image_base": 271581184,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "coords",
+      "module": "Engine.dll",
+      "symbol": "?ComputeRenderCoords@FSceneNode@@QAEXAAVFVector@@AAVFRotator@@@Z",
+      "rva": 567712,
+      "prefix": "558bec6aff68c0b6461064a10000000050648925",
+      "sha256": "efa56c753fe306c2ad2744c82e20258da39df9ce51b3b415d476f8282ae1a189",
+      "image_base": 271581184,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "create",
+      "module": "Render.dll",
+      "symbol": "?CreateMasterFrame@URender@@UAEPAUFSceneNode@@PAVUViewport@@VFVector@@VFRotator@@PAUFScreenBounds@@@Z",
+      "rva": 130240,
+      "prefix": "558bec6aff689e73b31064a10000000050648925",
+      "sha256": "eb71bc45dad3b744b9155f37e1ba59119a31743fc74a7fb8cb4dafa93797755a",
+      "image_base": 279969792,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "finish",
+      "module": "Render.dll",
+      "symbol": "?FinishMasterFrame@URender@@UAEXXZ",
+      "rva": 131024,
+      "prefix": "558bec6aff68a873b31064a10000000050648925",
+      "sha256": "eb71bc45dad3b744b9155f37e1ba59119a31743fc74a7fb8cb4dafa93797755a",
+      "image_base": 279969792,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "world",
+      "module": "Render.dll",
+      "symbol": "?DrawWorld@URender@@UAEXPAUFSceneNode@@@Z",
+      "rva": 162096,
+      "prefix": "558bec6aff681274b31064a10000000050648925",
+      "sha256": "eb71bc45dad3b744b9155f37e1ba59119a31743fc74a7fb8cb4dafa93797755a",
+      "image_base": 279969792,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "occlude",
+      "module": "Render.dll",
+      "symbol": "?OccludeFrame@URender@@QAEXPAUFSceneNode@@@Z",
+      "rva": 150656,
+      "prefix": "558bec6aff68ec73b31064a10000000050648925",
+      "sha256": "eb71bc45dad3b744b9155f37e1ba59119a31743fc74a7fb8cb4dafa93797755a",
+      "image_base": 279969792,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "dispatch",
+      "module": "Core.dll",
+      "symbol": "?ProcessEvent@UObject@@UAEXPAVUFunction@@PAX1@Z",
+      "rva": 280752,
+      "prefix": "558bec6aff68fed4171064a10000000050648925",
+      "sha256": "f6ad0a5fb348d868cb7499fdd727d3f6034acf0d8ba3795ae78809893b4d5249",
+      "image_base": 269484032,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "name",
+      "module": "Core.dll",
+      "symbol": "??0FName@@QAE@PBGW4EFindName@@@Z",
+      "rva": 370832,
+      "prefix": "558bec6aff687ae2171064a10000000050648925",
+      "sha256": "f6ad0a5fb348d868cb7499fdd727d3f6034acf0d8ba3795ae78809893b4d5249",
+      "image_base": 269484032,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "field",
+      "module": "Core.dll",
+      "symbol": "?FindObjectField@UObject@@QAEPAVUField@@VFName@@H@Z",
+      "rva": 383504,
+      "prefix": "568b74240885f6578bc67505b8d09b1b108b108b",
+      "sha256": "f6ad0a5fb348d868cb7499fdd727d3f6034acf0d8ba3795ae78809893b4d5249",
+      "image_base": 269484032,
+      "relocations": [
+        13
+      ]
+    },
+    {
+      "label": "mesh",
+      "module": "Render.dll",
+      "symbol": "?DrawMesh@URender@@QAEXPAUFSceneNode@@PAUFDynamicSprite@@PAVAActor@@ABVFCoords@@K@Z",
+      "rva": 57984,
+      "prefix": "558bec6aff680672b31064a10000000050648925",
+      "sha256": "eb71bc45dad3b744b9155f37e1ba59119a31743fc74a7fb8cb4dafa93797755a",
+      "image_base": 279969792,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "lodmesh",
+      "module": "Render.dll",
+      "symbol": "?DrawLodMesh@URender@@QAEXPAUFSceneNode@@PAUFDynamicSprite@@PAVAActor@@ABVFCoords@@K@Z",
+      "rva": 63488,
+      "prefix": "558bec6aff684872b31064a10000000050648925",
+      "sha256": "eb71bc45dad3b744b9155f37e1ba59119a31743fc74a7fb8cb4dafa93797755a",
+      "image_base": 279969792,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "property",
+      "module": "Core.dll",
+      "symbol": "internal cdecl property lookup called by execGetPropertyText",
+      "rva": 300224,
+      "prefix": "558bec6aff6870d6171064a10000000050648925",
+      "sha256": "f6ad0a5fb348d868cb7499fdd727d3f6034acf0d8ba3795ae78809893b4d5249",
+      "image_base": 269484032,
+      "relocations": [
+        6
+      ]
+    }
+  ],
+  "checks": [
+    [
+      "Engine.dll",
+      1206307,
+      "8b86a4000000"
+    ],
+    [
+      "Engine.dll",
+      1206313,
+      "8b401c"
+    ],
+    [
+      "Engine.dll",
+      1206357,
+      "8b4e38"
+    ],
+    [
+      "Engine.dll",
+      1206363,
+      "0faf4e34"
+    ],
+    [
+      "Core.dll",
+      46304,
+      "8b410cc3"
+    ],
+    [
+      "Core.dll",
+      279395,
+      "8b460c"
+    ],
+    [
+      "Core.dll",
+      279403,
+      "8b401c"
+    ],
+    [
+      "Core.dll",
+      279410,
+      "8b4020"
+    ],
+    [
+      "ALAudio.dll",
+      14352,
+      "81e2ff7f0000"
+    ],
+    [
+      "ALAudio.dll",
+      14360,
+      "c1f80f"
+    ],
+    [
+      "ALAudio.dll",
+      14417,
+      "c1e00f"
+    ],
+    [
+      "ALAudio.dll",
+      14428,
+      "c745d800800000"
+    ],
+    [
+      "ALAudio.dll",
+      14463,
+      "6800800000"
+    ],
+    [
+      "ALAudio.dll",
+      14555,
+      "6800800000"
+    ],
+    [
+      "ALAudio.dll",
+      14952,
+      "c7473000800000"
+    ],
+    [
+      "Render.dll",
+      132721,
+      "ff158057b710"
+    ],
+    [
+      "Engine.dll",
+      1231320,
+      "5757568bca"
+    ],
+    [
+      "Engine.dll",
+      1235000,
+      "6a016a0056"
+    ],
+    [
+      "Engine.dll",
+      735415,
+      "c21800"
+    ],
+    [
+      "Engine.dll",
+      736067,
+      "c21800"
+    ],
+    [
+      "Engine.dll",
+      1157121,
+      "8b8f94000000"
+    ],
+    [
+      "Engine.dll",
+      1157153,
+      "ff9090000000"
+    ],
+    [
+      "Core.dll",
+      46176,
+      "8b4118c3"
+    ],
+    [
+      "Core.dll",
+      71344,
+      "8b4118c3"
+    ],
+    [
+      "Engine.dll",
+      724439,
+      "c20800"
+    ],
+    [
+      "WinDrv.dll",
+      32487,
+      "8d4fd4"
+    ],
+    [
+      "Engine.dll",
+      663903,
+      "8b57d88d4fd8"
+    ],
+    [
+      "Engine.dll",
+      663916,
+      "ff928c000000"
+    ],
+    [
+      "Core.dll",
+      463026,
+      "8b415c"
+    ],
+    [
+      "Core.dll",
+      210262,
+      "8b565c"
+    ],
+    [
+      "Engine.dll",
+      568884,
+      "8b5130d982c8030000"
+    ],
+    [
+      "Engine.dll",
+      568996,
+      "895108"
+    ],
+    [
+      "Engine.dll",
+      718395,
+      "8b80a00e0000"
+    ],
+    [
+      "Engine.dll",
+      717412,
+      "8a9408b00e0000"
+    ],
+    [
+      "Core.dll",
+      280467,
+      "8b4604"
+    ],
+    [
+      "Core.dll",
+      280470,
+      "8b4e10"
+    ],
+    [
+      "Engine.dll",
+      1158640,
+      "8b8f94000000"
+    ],
+    [
+      "Core.dll",
+      459307,
+      "8b4638"
+    ],
+    [
+      "Core.dll",
+      459316,
+      "8b5648"
+    ],
+    [
+      "Core.dll",
+      45936,
+      "8b4124c3"
+    ],
+    [
+      "Render.dll",
+      118205,
+      "89462c"
+    ],
+    [
+      "Engine.dll",
+      633374,
+      "89475c"
+    ],
+    [
+      "Render.dll",
+      162285,
+      "8b432c8b485c"
+    ]
+  ]
+}

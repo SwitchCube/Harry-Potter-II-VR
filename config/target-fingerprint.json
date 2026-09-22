@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "mode": "observed-original-reference-not-an-approved-hook-target",
+  "files": [
+    {
+      "path": "system\\ALAudio.dll",
+      "sha256": "01e4a106d8f7a6cc5d81d41f62664a8b90d73c28431bd02a1fd9ac4804dd5803",
+      "bits": 32
+    },
+    {
+      "path": "system\\Core.dll",
+      "sha256": "f6ad0a5fb348d868cb7499fdd727d3f6034acf0d8ba3795ae78809893b4d5249",
+      "bits": 32
+    },
+    {
+      "path": "system\\D3DDrv.dll",
+      "sha256": "412078c350464c4b860893369bec733084b91f11a5e235026bf7ebf777644f02",
+      "bits": 32
+    },
+    {
+      "path": "system\\DrvMgt.dll",
+      "sha256": "1366302382f84813e3f6d097e8e401b17ac3887ca7bd9f71827763aa4fc23916",
+      "bits": 32
+    },
+    {
+      "path": "system\\Editor.dll",
+      "sha256": "8de50b45def3cbcfc73da76df469fd792085b24da388412497e13cdb0c52ca32",
+      "bits": 32
+    },
+    {
+      "path": "system\\Engine.dll",
+      "sha256": "efa56c753fe306c2ad2744c82e20258da39df9ce51b3b415d476f8282ae1a189",
+      "bits": 32
+    },
+    {
+      "path": "system\\Fire.dll",
+      "sha256": "409e15e64d28376edf7fac215952170756813816bf204e907015568c507373ab",
+      "bits": 32
+    },
+    {
+      "path": "system\\Game.exe",
+      "sha256": "eba64695b352b103611dc8e827e6bc44e8376e31d8cf3da0b7e11d09edc1a694",
+      "bits": 32
+    },
+    {
+      "path": "system\\ogg.dll",
+      "sha256": "a391e1e2dbbb11f1c5041482223e8b014530649bccbf6c2cb95d9f173981445f",
+      "bits": 32
+    },
+    {
+      "path": "system\\ogg_d.dll",
+      "sha256": "cb7060076b7d58b5bdce5c40ac79791906240e7cb8ef81f356bfdb586000b130",
+      "bits": 32
+    },
+    {
+      "path": "system\\OpenAL32.dll",
+      "sha256": "507f96320b205a1ba466c53b028e9b946c8b47b2c130098e4a1d2aaad4e1af12",
+      "bits": 32
+    },
+    {
+      "path": "system\\Render.dll",
+      "sha256": "eb71bc45dad3b744b9155f37e1ba59119a31743fc74a7fb8cb4dafa93797755a",
+      "bits": 32
+    },
+    {
+      "path": "system\\SoftDrv.dll",
+      "sha256": "634665db1c204d797b57200c87a8f5e267e6d1cf06211d2faed385916699570f",
+      "bits": 32
+    },
+    {
+      "path": "system\\sx.exe",
+      "sha256": "86695cef0ec7e9901b4e0b2adad50284e48ddc8e4a47c94ebf62869fc2dd3756",
+      "bits": 32
+    },
+    {
+      "path": "system\\vorbis.dll",
+      "sha256": "b594b271958676d3526e17db686e02d0f7e8ecb380582ffc8b9e09001d4a6801",
+      "bits": 32
+    },
+    {
+      "path": "system\\vorbis_d.dll",
+      "sha256": "7f45e319d522f8a7fdedb2cfe60922482e851c193082ca5aca8779435d0ae4ca",
+      "bits": 32
+    },
+    {
+      "path": "system\\vorbisfile.dll",
+      "sha256": "e5fd294664e08b7220cc4a620295594082861220ad6a805b92096e98c3a3905e",
+      "bits": 32
+    },
+    {
+      "path": "system\\vorbisfile_d.dll",
+      "sha256": "039d898fb18a9c35265dfd0aab400bff0c50062c81d5576bcda44c49d02c4a64",
+      "bits": 32
+    },
+    {
+      "path": "system\\Window.dll",
+      "sha256": "bbcb66a2015afd58d6863d35f170908a05312a06cf5e94a676563e3da236a8b6",
+      "bits": 32
+    },
+    {
+      "path": "system\\WinDrv.dll",
+      "sha256": "c886ecd1a0f17e25d0fa54e57f41485ef2aa61ba65231eb3c5aced9c60aad302",
+      "bits": 32
+    },
+    {
+      "path": "system\\WinKeyHook.dll",
+      "sha256": "2b4b15af2549351bb5d74e1f3298dd355c29c0f47bff96d44e3654b0ec08d041",
+      "bits": 32
+    },
+    {
+      "path": "system/hgame.u",
+      "sha256": "86AA0B3600FCDBB3B52B54A14D9439387021FA2DCCE76634AD19CC7E7DB90DD2",
+      "bits": null
+    }
+  ]
+}

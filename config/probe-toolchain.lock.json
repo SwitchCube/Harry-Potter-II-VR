@@ -1,0 +1,8 @@
+{
+  "name": "Zig",
+  "version": "0.15.2",
+  "url": "https://ziglang.org/download/0.15.2/zig-x86_64-windows-0.15.2.zip",
+  "sha256": "3a0ed1e8799a2f8ce2a6e6290a9ff22e6906f8227865911fb7ddedc3cc14cb0c",
+  "purpose": "Standalone C++ x86 diagnostic only; not an approved HP2 C++ ABI toolchain",
+  "retrieved_utc": "2026-09-18T17:17:49.8600941Z"
+}

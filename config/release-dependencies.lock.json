@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "url": "https://www.python.org/ftp/python/3.13.13/python-3.13.13-embed-win32.zip",
+      "path": "external/python-runtime/python-3.13.13-embed-win32.zip",
+      "sha256": "f93abb82d239bdeafa72b2537859f82dc8fa543ec4c4d7eed1bafa3caf374e02"
+    }
+  ]
+}

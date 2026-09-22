@@ -1,5 +1,9 @@
 # Harry Potter II VR
 
+**Source code / Quellcode:** [C++](src/) · [Launcher](release/portable_launcher.py) · [Build instructions / Bauanleitung](docs/BUILDING.md)
+
+**Ready-to-use mod / Fertige Mod:** [Download from Releases](https://github.com/SwitchCube/Harry-Potter-II-VR/releases/latest)
+
 ## English
 
 An unofficial VR mod for the **2002 Windows PC version of Harry Potter and the Chamber of Secrets**. Explore Hogwarts in first person, aim with your controller, and switch between unmodified Flat gameplay and VR. Both modes share the same saved games.
@@ -19,7 +23,7 @@ An unofficial VR mod for the **2002 Windows PC version of Harry Potter and the C
 
 Hardware compatibility is still being tested. Wireless audio gaps or compression artifacts may occur. Full instructions and bundled component licenses are included in the ZIP.
 
-This repository contains only the mod distribution, not the original game or its assets. An original game installation is required. Unofficial fan project, not affiliated with the game's rights holders.
+This repository contains the mod's C++ and Python source, build scripts, controller bindings and tests. To build it yourself, follow [BUILDING.md](docs/BUILDING.md). Ready-to-use mod packages are available under **Releases**. The original game and its assets are not included. An original game installation is required. Unofficial fan project, not affiliated with the game's rights holders.
 
 ---
 
@@ -42,5 +46,5 @@ Eine inoffizielle VR-Mod für die **Windows-PC-Version von Harry Potter und die 
 
 Die Hardware-Kompatibilität wird weiter erprobt. Drahtlose Tonlücken oder Kompressionsartefakte können auftreten. Ausführliche Anleitungen und Lizenzen mitgelieferter Komponenten stehen im ZIP.
 
-Dieses Repository enthält nur die Mod zum Installieren, keine Original-Spieldateien. Eine eigene Spielinstallation ist erforderlich. Inoffizielles Fanprojekt ohne Verbindung zu den Rechteinhabern.
+Dieses Repository enthält den C++- und Python-Quellcode der Mod, Build-Skripte, Controllerbelegungen und Tests. Zum Selbstbauen siehe [BUILDING.md](docs/BUILDING.md). Die fertige Mod zum Installieren gibt es unter **Releases**. Original-Spieldateien sind nicht enthalten. Eine eigene Spielinstallation ist erforderlich. Inoffizielles Fanprojekt ohne Verbindung zu den Rechteinhabern.
 

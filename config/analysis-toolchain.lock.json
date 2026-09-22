@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "retrieved_local_date": "2026-09-19",
+  "package": "capstone",
+  "version": "5.0.6",
+  "source": "https://pypi.org/project/capstone/5.0.6/",
+  "documentation": "https://www.capstone-engine.org/lang_python.html",
+  "wheel": "cache/wheels/capstone-5.0.6-py3-none-win_amd64.whl",
+  "wheel_sha256": "761c3deae00b22ac697081cdae1383bb90659dd0d79387a09cf5bdbb22b17064",
+  "wheel_bytes": 1271345,
+  "install_directory": "external/python",
+  "license": "BSD-3-Clause",
+  "license_file": "external/python/capstone-5.0.6.dist-info/LICENSE.TXT",
+  "purpose": "Local static disassembly only; not loaded in the x86 game",
+  "global_install": false
+}

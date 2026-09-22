@@ -1,2 +1,2 @@
-# Keep packaged files byte-identical on every checkout.
+# Preserve reviewed source bytes across checkouts and build-input hashes.
 * -text

@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "targets": [
+    {
+      "module": "Render.dll",
+      "export": "?CreateMasterFrame@URender@@UAEPAUFSceneNode@@PAVUViewport@@VFVector@@VFRotator@@PAUFScreenBounds@@@Z",
+      "export_rva": 4521,
+      "implementation_rva": 130240,
+      "thunk_bytes": "e912eb0100",
+      "prolog_bytes": "558bec6aff",
+      "sha256": "eb71bc45dad3b744b9155f37e1ba59119a31743fc74a7fb8cb4dafa93797755a",
+      "label": "CreateMaster"
+    },
+    {
+      "module": "Render.dll",
+      "export": "?FinishMasterFrame@URender@@UAEXXZ",
+      "export_rva": 4416,
+      "implementation_rva": 131024,
+      "thunk_bytes": "e98bee0100",
+      "prolog_bytes": "558bec6aff",
+      "sha256": "eb71bc45dad3b744b9155f37e1ba59119a31743fc74a7fb8cb4dafa93797755a",
+      "label": "FinishMaster"
+    },
+    {
+      "module": "Core.dll",
+      "export": "?ProcessEvent@UObject@@UAEXPAVUFunction@@PAX1@Z",
+      "export_rva": 13031,
+      "implementation_rva": 280752,
+      "thunk_bytes": "e9c4150400",
+      "prolog_bytes": "558bec6aff",
+      "sha256": "f6ad0a5fb348d868cb7499fdd727d3f6034acf0d8ba3795ae78809893b4d5249",
+      "label": "ProcessEvent"
+    },
+    {
+      "module": "D3DDrv.dll",
+      "export": "?Unlock@UD3DRenderDevice@@UAEXH@Z",
+      "export_rva": 4301,
+      "implementation_rva": 14512,
+      "thunk_bytes": "e9de270000",
+      "prolog_bytes": "558bec6aff",
+      "sha256": "412078c350464c4b860893369bec733084b91f11a5e235026bf7ebf777644f02",
+      "label": "D3DUnlock"
+    }
+  ],
+  "checks": [
+    [
+      "Engine.dll",
+      691931,
+      "ff5074"
+    ],
+    [
+      "Engine.dll",
+      691934,
+      "8b4f5c"
+    ],
+    [
+      "Render.dll",
+      162432,
+      "ff5210"
+    ],
+    [
+      "Render.dll",
+      130267,
+      "8b91a8000000"
+    ],
+    [
+      "Render.dll",
+      131066,
+      "8b86a8000000"
+    ],
+    [
+      "D3DDrv.dll",
+      14549,
+      "8b86a4090000"
+    ],
+    [
+      "Core.dll",
+      40272,
+      "8b0185c0"
+    ],
+    [
+      "Core.dll",
+      40283,
+      "83c00cc3"
+    ],
+    [
+      "Core.dll",
+      280933,
+      "668b567a"
+    ],
+    [
+      "Core.dll",
+      281039,
+      "668b467c"
+    ],
+    [
+      "Engine.dll",
+      526004,
+      "c20c00"
+    ],
+    [
+      "Render.dll",
+      199584,
+      "ff5210"
+    ],
+    [
+      "Render.dll",
+      199553,
+      "c745e800000000"
+    ]
+  ],
+  "mode": "One extra master frame and draw, same tick, original D3D7 backbuffer readback",
+  "engine_draw_return_rva": 691934,
+  "overlay_return_rva": 162435,
+  "renderer_depth_offset": 168,
+  "viewport_renderdevice_offset": 92,
+  "device7_offset": 2468,
+  "actor_dispatch_return_rva": 526004,
+  "update_return_rva": 199587,
+  "function_parameter_bytes_offset": 122,
+  "function_return_offset_offset": 124,
+  "frame_bytes": 364,
+  "headset_test": false
+}

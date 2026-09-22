@@ -1,0 +1,55 @@
+{
+  "retrieved_utc": "2026-09-18T17:07:37.264786+00:00",
+  "files": [
+    {
+      "repository": "ValveSoftware/openvr",
+      "branch": "master",
+      "commit": "0924064316de3effbcd1acf1e309182a2deb1c05",
+      "file": "LICENSE",
+      "local_path": "external/openvr/LICENSE",
+      "url": "https://raw.githubusercontent.com/ValveSoftware/openvr/0924064316de3effbcd1acf1e309182a2deb1c05/LICENSE",
+      "sha256": "f56ff606104d4ef18e617921a75c73ad73b5a1a1d70c69590c29de16919e04ad",
+      "bytes": 1488
+    },
+    {
+      "repository": "ValveSoftware/openvr",
+      "branch": "master",
+      "commit": "0924064316de3effbcd1acf1e309182a2deb1c05",
+      "file": "README.md",
+      "local_path": "external/openvr/README.md",
+      "url": "https://raw.githubusercontent.com/ValveSoftware/openvr/0924064316de3effbcd1acf1e309182a2deb1c05/README.md",
+      "sha256": "98a55d4a07a8ceffc010e6fa6c1f3e05689caa514dcf9c7da8b60f9944f2e020",
+      "bytes": 832
+    },
+    {
+      "repository": "ValveSoftware/openvr",
+      "branch": "master",
+      "commit": "0924064316de3effbcd1acf1e309182a2deb1c05",
+      "file": "headers/openvr.h",
+      "local_path": "external/openvr/headers/openvr.h",
+      "url": "https://raw.githubusercontent.com/ValveSoftware/openvr/0924064316de3effbcd1acf1e309182a2deb1c05/headers/openvr.h",
+      "sha256": "1e6ed57199896cc1f7c5484e50fa18955e97be15be690beb28d998c877ead7fd",
+      "bytes": 296217
+    },
+    {
+      "repository": "ValveSoftware/openvr",
+      "branch": "master",
+      "commit": "0924064316de3effbcd1acf1e309182a2deb1c05",
+      "file": "lib/win32/openvr_api.lib",
+      "local_path": "external/openvr/lib/win32/openvr_api.lib",
+      "url": "https://raw.githubusercontent.com/ValveSoftware/openvr/0924064316de3effbcd1acf1e309182a2deb1c05/lib/win32/openvr_api.lib",
+      "sha256": "9ec5921313d97eb88d7fb98371e31cc0eb73f792266f8ea4ef387031fe0d3a3d",
+      "bytes": 5578
+    },
+    {
+      "repository": "ValveSoftware/openvr",
+      "branch": "master",
+      "commit": "0924064316de3effbcd1acf1e309182a2deb1c05",
+      "file": "bin/win32/openvr_api.dll",
+      "local_path": "external/openvr/bin/win32/openvr_api.dll",
+      "url": "https://raw.githubusercontent.com/ValveSoftware/openvr/0924064316de3effbcd1acf1e309182a2deb1c05/bin/win32/openvr_api.dll",
+      "sha256": "ab696e4f218a95b3e396bc310f9fe6485df48c99c0969762083212b1e1f025a6",
+      "bytes": 631960
+    }
+  ]
+}
