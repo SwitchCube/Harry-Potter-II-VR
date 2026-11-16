@@ -1,6 +1,30 @@
 {
   "targets": [
     {
+      "label": "localize",
+      "module": "Core.dll",
+      "symbol": "?Localize@@YAPBGPBG000H@Z",
+      "rva": 346912,
+      "prefix": "558bec6aff6871de171064a10000000050648925",
+      "sha256": "f6ad0a5fb348d868cb7499fdd727d3f6034acf0d8ba3795ae78809893b4d5249",
+      "image_base": 269484032,
+      "relocations": [
+        6
+      ]
+    },
+    {
+      "label": "soundload",
+      "module": "Core.dll",
+      "symbol": "?StaticLoadObject@UObject@@SAPAV1@PAVUClass@@PAV1@PBG2KPAVUPackageMap@@@Z",
+      "rva": 401472,
+      "prefix": "558bec6aff6882e5171064a10000000050648925",
+      "sha256": "f6ad0a5fb348d868cb7499fdd727d3f6034acf0d8ba3795ae78809893b4d5249",
+      "image_base": 269484032,
+      "relocations": [
+        6
+      ]
+    },
+    {
       "label": "scriptedtick",
       "module": "Engine.dll",
       "symbol": "?Tick@UScriptedTexture@@UAEXM@Z",

@@ -2,8 +2,8 @@
 
 ## English
 
-This repository contains the mod source for the v1.0.2 implementation. The
-native gameplay source matches the native inputs used for the published v1.0.2
+This repository contains the mod source for the v1.0.3 implementation. The
+native gameplay source matches the native inputs used for the published v1.0.3
 release. Publication adds portable setup helpers and removes machine-specific
 development data. Download the ready-to-use mod from [Releases](https://github.com/SwitchCube/Harry-Potter-II-VR/releases/latest).
 
@@ -46,9 +46,14 @@ bypass the checks or replace the recorded hashes to make it pass.
 python -B -m unittest discover -s tests -p 'test_*.py'
 if ($LASTEXITCODE -ne 0) { throw 'Python tests failed' }
 $build = ./scripts/Build-NativeVR.ps1 | Select-Object -Last 1
-python -B scripts/package_release.py --build $build --output dist/HP2VR-1.0.2-local.zip
+python -B scripts/package_release.py --build $build --output dist/HP2VR-1.0.3-local.zip
 if ($LASTEXITCODE -ne 0) { throw 'Packaging failed' }
 ```
+
+The build first packs the included generated tutorial WAV files into the mod's
+own German and English sound packages. No voice-model download or generation
+is needed to build the release. The packed `.uax` files stay ignored locally;
+editable WAVs and their JSON catalogues are committed.
 
 The native build runs the C++ math, pixel, controller, capability, HUD fallback
 and frame-lifecycle checks. These checks use the local graphics stack but do
@@ -91,32 +96,32 @@ older tags reflect their historical contents.
 
 ## Deutsch
 
-Dieses Repository enthält den Mod-Quellcode der Implementierung v1.0.2.
-Die nativen Gameplay-Quelldateien entsprechen den Eingaben des veröffentlichten
+Dieses Repository enthÃ¤lt den Mod-Quellcode der Implementierung v1.0.3.
+Die nativen Gameplay-Quelldateien entsprechen den Eingaben des verÃ¶ffentlichten
 Builds. Fertige Downloads stehen unter [Releases](https://github.com/SwitchCube/Harry-Potter-II-VR/releases/latest).
 
 Vorausgesetzt werden Windows 10/11 x64, PowerShell, **64-Bit-Python ab 3.11**
-und eine eigene unterstützte HP2-PC-Installation (`HPCos_021009_1205-1`).
-Führe die oben aufgeführten Befehle im Stammverzeichnis eines separaten
+und eine eigene unterstÃ¼tzte HP2-PC-Installation (`HPCos_021009_1205-1`).
+FÃ¼hre die oben aufgefÃ¼hrten Befehle im Stammverzeichnis eines separaten
 Checkouts aus. Ersetze den Beispiel-Spielpfad durch deinen Installationsordner.
-Das Setup prüft die Originaldateien anhand ihrer SHA-256-Werte und kopiert nur
-die für den Build benötigten Dateien. Die Originalinstallation bleibt unverändert;
-Spielstände werden nicht übernommen. Abhängigkeiten werden mit festen Versionen
-und Prüfsummen lokal heruntergeladen.
+Das Setup prÃ¼ft die Originaldateien anhand ihrer SHA-256-Werte und kopiert nur
+die fÃ¼r den Build benÃ¶tigten Dateien. Die Originalinstallation bleibt unverÃ¤ndert;
+SpielstÃ¤nde werden nicht Ã¼bernommen. AbhÃ¤ngigkeiten werden mit festen Versionen
+und PrÃ¼fsummen lokal heruntergeladen.
 
-Die zweite Befehlsgruppe führt die Python-Tests aus, kompiliert die 32-Bit-Mod
-einschließlich nativer Tests und erzeugt `dist/HP2VR-1.0.2-local.zip` samt
-Prüfsumme. Originalspiel, Spielstände und persönliche Einstellungen werden nicht
+Die zweite Befehlsgruppe fÃ¼hrt die Python-Tests aus, kompiliert die 32-Bit-Mod
+einschlieÃŸlich nativer Tests und erzeugt `dist/HP2VR-1.0.3-local.zip` samt
+PrÃ¼fsumme. Originalspiel, SpielstÃ¤nde und persÃ¶nliche Einstellungen werden nicht
 in das Mod-Paket aufgenommen. Ein kompletter Spieldurchgang und ein echter
 Headset-Test werden damit nicht ersetzt.
 
-`src/` enthält C++, `scripts/` die Entwicklungswerkzeuge, `release/` den
+`src/` enthÃ¤lt C++, `scripts/` die Entwicklungswerkzeuge, `release/` den
 Python-Starter und die Installationsdateien, `config/vr/` die Controllerbelegungen
-und `tests/` die Prüfungen. Fertige Mod-Pakete gehören ausschließlich unter
-GitHub Releases. Lokale Konfigurationen, Protokolle, Spielstände, Binärdateien
+und `tests/` die PrÃ¼fungen. Fertige Mod-Pakete gehÃ¶ren ausschlieÃŸlich unter
+GitHub Releases. Lokale Konfigurationen, Protokolle, SpielstÃ¤nde, BinÃ¤rdateien
 und Originalspieldateien sind durch `.gitignore` ausgeschlossen.
-Vor einem Upload den vorgemerkten Diff sowie Git-Autor und noreply-Adresse prüfen.
+Vor einem Upload den vorgemerkten Diff sowie Git-Autor und noreply-Adresse prÃ¼fen.
 
-Der historische Tag `v1.0.2` bleibt dem ursprünglichen Download zugeordnet.
-Der veröffentlichte Quellcode liegt auf `main`; automatische GitHub-Archive alter
+Der historische Tag `v1.0.2` bleibt dem ursprÃ¼nglichen Download zugeordnet.
+Der verÃ¶ffentlichte Quellcode liegt auf `main`; automatische GitHub-Archive alter
 Tags behalten den damaligen Inhalt.

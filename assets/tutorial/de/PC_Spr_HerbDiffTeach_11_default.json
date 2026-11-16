@@ -1,0 +1,10 @@
+{
+  "id": "PC_Spr_HerbDiffTeach_11",
+  "variant": "default",
+  "text": "Bewege den linken Stick kurz in die Richtung des Pfeils, sobald der Zauberstab genau darüber steht. Lass den Stick danach wieder los.",
+  "seconds": 9.12,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "4d1de1bf3e456eca796e42bc8c7d66ee650cbb3c6018444f6a32b1640e4214c2"
+}

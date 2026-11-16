@@ -14,7 +14,7 @@ import sys
 import time
 import uuid
 
-VERSION = '1.0.2'
+VERSION = '1.0.3'
 LANGUAGE = 'en'
 DATA_DIRECTORY = None
 REPORT_FAILURES = True
@@ -158,11 +158,13 @@ def setup_data(package, game, profile, data, manifest, options):
     from project_paths import inside, write_text
     from shared_saves import atomic_json
     build=build_relative(manifest)
-    for name in ('config','config/vr','cache','cache/tmp','logs',build,'external/openvr/bin/win32'):
+    for name in ('config','config/vr','cache','cache/tmp','logs',build,'external/openvr/bin/win32','assets/tutorial'):
         inside(name).mkdir(parents=True,exist_ok=True)
     for name in ('hp2vr-native.dll','hp2vr-native-launcher.exe','hp2vr-flat-launcher.exe'):
         ensure_file(package/'bin'/name, inside(build)/name)
     ensure_file(package/'bin/openvr_api.dll',inside('external/openvr/bin/win32/openvr_api.dll'))
+    for name in ('HP2VRTutorial.uax','HP2VRTutorialEN.uax'):
+        ensure_file(package/'assets/tutorial'/name,inside('assets/tutorial')/name)
     for source in (package/'defaults/vr').glob('*.json'): ensure_file(source,inside('config/vr')/source.name)
     settings=inside('config/hp2vr.ini')
     if not settings.exists(): write_text(settings,(package/'defaults/hp2vr.ini').read_text(encoding='utf-8'))

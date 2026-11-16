@@ -38,7 +38,7 @@ static void replayMechanics(){
    for(int i=0;i<count;++i){void* o=reinterpret_cast<Indexed>(targets.at("indexedobject"))(i);if(!o||objectName(mem<void*>(o,0x24))!=L"CutScene"||mem<void*>(o,0x94)!=mem<void*>(vrPlayer,0x94)||!boolField(o,L"bPlaying"))continue;scenes.push_back({o,boolField(o,L"bSkipAllowed")});ScopedScreenRelative flag(o,true,L"bSkipAllowed",false);flag.oldBit=0;}
    need(!scenes.empty(),"No original active cinematic fixture");mechanicsStage=1;mechanicsAt=GetTickCount64();log("{\"event\":\"unskippable_fixture_start\",\"active_scenes\":%u}",unsigned(scenes.size()));
   }else if(mechanicsStage==1&&GetTickCount64()-mechanicsAt>6000){
-   need(worldSceneActive&&!cinemaActive,"Unskippable scene did not become stereo");log("{\"event\":\"unskippable_fixture_world\",\"frames\":%u}",vrFrames);
+   need(cinemaActive&&!worldSceneActive&&hallActive,"Flat scene did not use the HP2 entrance");log("{\"event\":\"unskippable_fixture_cinema\",\"frames\":%u}",vrFrames);
    for(auto row:scenes){ScopedScreenRelative flag(row.first,true,L"bSkipAllowed",row.second);flag.oldBit=row.second?flag.mask:0;}
    mechanicsStage=2;mechanicsAt=GetTickCount64();
   }else if(mechanicsStage==2&&GetTickCount64()-mechanicsAt>1000){need(cinemaActive&&!worldSceneActive,"Restored skippable scene did not return to cinema");mechanicsStage=3;mechanicsAt=GetTickCount64();log("{\"event\":\"unskippable_fixture_restored\"}");vrPresentation.setSpatial(true);VrPresentation persisted;persisted.load(startup.profile);need(persisted.spatialScenes,"Scene option did not persist");}

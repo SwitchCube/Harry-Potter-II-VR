@@ -25,6 +25,9 @@ def package(build,output):
     def add(name,source):files[name]=inside(source).read_bytes()
     for name in ('hp2vr-native.dll','hp2vr-native-launcher.exe','hp2vr-flat-launcher.exe'):add('HP2VR/bin/'+name,build/name)
     add('HP2VR/bin/openvr_api.dll','external/openvr/bin/win32/openvr_api.dll')
+    tutorials={'HP2VR/assets/tutorial/'+name for name in ('HP2VRTutorial.uax','HP2VRTutorialEN.uax')}
+    for name in sorted(tutorials):
+        add(name,name.removeprefix('HP2VR/'))
     for name in ('project_paths.py','shared_saves.py','menu_sessions.py','stage_test_profile.py','stage_vr_bindings.py'):add('HP2VR/scripts/'+name,'scripts/'+name)
     for name in ('portable_launcher.py','collect_diagnostics.py'):add('HP2VR/scripts/'+name,'release/'+name)
     for name in ('Options.ini','README-DE.txt','README-EN.txt','README-DIAGNOSE.txt','CONTROLLERS.txt','THIRD-PARTY.txt'):add('HP2VR/'+name,'release/'+name)
@@ -86,7 +89,7 @@ AutoQuality=1
     files['HP2VR/manifest.json']=(json.dumps(manifest,indent=2)+'\n').encode()
     for name,data in files.items():
         private_scan(name,data)
-        if Path(name).name.lower()=='game.exe' or Path(name).suffix.lower() in ('.usa','.unr','.u','.utx','.uax','.umx','.bmp','.pdb'):
+        if Path(name).name.lower()=='game.exe' or (Path(name).suffix.lower() in ('.usa','.unr','.u','.utx','.uax','.umx','.bmp','.pdb') and name not in tutorials):
             raise ValueError('Forbidden release asset: '+name)
     output.parent.mkdir(parents=True,exist_ok=True)
     with zipfile.ZipFile(output,'x',zipfile.ZIP_DEFLATED,compresslevel=9) as z:

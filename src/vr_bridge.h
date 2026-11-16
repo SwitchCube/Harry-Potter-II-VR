@@ -72,9 +72,10 @@ struct VrBridge {
    context->Unmap(staging,0);if(!equal)throw std::runtime_error("GPU eye differs from original game pixels");verifiedMask|=1u<<eye;releaseVerification();
   }
  }
- unsigned uploadArgb(const DDSURFACEDESC2& d,bool verify,bool sourceAlpha=true){
+ unsigned uploadArgb(const DDSURFACEDESC2& d,bool verify,bool sourceAlpha=true,void (*decorate)(BYTE*,unsigned,unsigned)=nullptr){
   if(!alphaTexture||!device||!d.lpSurface||d.dwWidth!=width||d.dwHeight!=height||d.lPitch<LONG(width*4)||d.ddpfPixelFormat.dwRGBBitCount!=32||d.ddpfPixelFormat.dwRBitMask!=0x00ff0000||d.ddpfPixelFormat.dwGBitMask!=0x0000ff00||d.ddpfPixelFormat.dwBBitMask!=0x000000ff||(sourceAlpha&&d.ddpfPixelFormat.dwRGBAlphaBitMask!=0xff000000))throw std::runtime_error("Unsupported HUD ARGB layout");
   unsigned visible=copyHudBGRA(pixels.data(),static_cast<const unsigned char*>(d.lpSurface),width,height,d.lPitch,sourceAlpha);
+  if(decorate)decorate(pixels.data(),width,height);
   context->UpdateSubresource(textures[0],0,nullptr,pixels.data(),width*4,0);
   if(verify){verificationSurface();context->CopyResource(staging,textures[0]);D3D11_MAPPED_SUBRESOURCE map={};check(context->Map(staging,0,D3D11_MAP_READ,0,&map),"Verify HUD GPU");
    bool equal=true;for(unsigned y=0;y<height&&equal;++y)equal=!std::memcmp(pixels.data()+y*width*4,static_cast<BYTE*>(map.pData)+y*map.RowPitch,width*4);

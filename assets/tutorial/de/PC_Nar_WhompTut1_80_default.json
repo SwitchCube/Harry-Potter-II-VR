@@ -1,0 +1,10 @@
+{
+  "id": "PC_Nar_WhompTut1_80",
+  "variant": "default",
+  "text": "Ziele mit dem rechten Controller auf einen Gegenstand. Lass den rechten Trigger los, sobald das Zaubersymbol erscheint.",
+  "seconds": 7.600041666666667,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "107832a41b1249bb7e8bc737012753d40ac861337b9b471a37b2c4aeb6c573c8"
+}

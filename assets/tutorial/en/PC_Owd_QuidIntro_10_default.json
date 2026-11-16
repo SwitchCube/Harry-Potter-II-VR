@@ -1,0 +1,10 @@
+{
+  "id": "PC_Owd_QuidIntro_10",
+  "variant": "default",
+  "text": "Press A on your right controller to reach for the Snitch. You will catch it if you are close enough.",
+  "seconds": 5.44,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "f18b09ea2f99b804ffed5fcd1ade5e2cfd9bdda4f8f3f9a62394c38149c66524"
+}

@@ -1,6 +1,6 @@
 """One set of stock save slots for Flat and VR; settings remain mode-specific.
 
-Shared progress is synchronized with the configured original Save directory.
+The user explicitly requested writes to the original Save directory on 20 Sep.
 No external INI, DLL or other directory is writable through this module.
 Slot replacement is journaled, and every displaced directory is retained.
 """

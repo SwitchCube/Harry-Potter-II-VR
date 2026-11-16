@@ -1,0 +1,253 @@
+{
+  "schema": 1,
+  "language": "en",
+  "voice_model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "description": "Local synthetic VR instructions, not new recordings by the original actors.",
+  "labels": {
+    "default": {}
+  },
+  "lines": [
+    {
+      "id": "PC_Flt_CharmSkurgTeach_09",
+      "actions": [
+        "move"
+      ],
+      "text": "Flick the left stick in the direction of the arrow when the wand is directly over it. Then release the stick again.",
+      "group": "CharmSkurgTeach"
+    },
+    {
+      "id": "PC_Flt_CharmSkurgTeach_29",
+      "actions": [
+        "move"
+      ],
+      "text": "Flick the left stick in the direction of the arrow when the wand is directly over it. Then release the stick again.",
+      "group": "CharmSkurgTeach"
+    },
+    {
+      "id": "PC_Flt_CharmSkurgTeach_30",
+      "actions": [
+        "move"
+      ],
+      "text": "Flick the left stick in the direction of the arrow when the wand is directly over it. Then release the stick again.",
+      "group": "CharmSkurgTeach"
+    },
+    {
+      "id": "PC_Gil_DADARictaTeach_19",
+      "actions": [
+        "move"
+      ],
+      "text": "Flick the left stick in the direction of the arrow when the wand is directly over it. Then release the stick again.",
+      "group": "DADARictaTeach"
+    },
+    {
+      "id": "PC_Gil_DADARictaTeach_33",
+      "actions": [
+        "move"
+      ],
+      "text": "Flick the left stick in the direction of the arrow when the wand is directly over it. Then release the stick again.",
+      "group": "DADARictaTeach"
+    },
+    {
+      "id": "PC_Gil_DADARictaTeach_34",
+      "actions": [
+        "move"
+      ],
+      "text": "Flick the left stick in the direction of the arrow when the wand is directly over it. Then release the stick again.",
+      "group": "DADARictaTeach"
+    },
+    {
+      "id": "PC_Gil_SpongeTeach_11",
+      "actions": [
+        "move"
+      ],
+      "text": "Flick the left stick in the direction of the arrow when the wand is directly over it. Then release the stick again.",
+      "group": "SpongeTeach"
+    },
+    {
+      "id": "PC_Gil_SpongeTeach_38",
+      "actions": [
+        "move"
+      ],
+      "text": "Flick the left stick in the direction of the arrow when the wand is directly over it. Then release the stick again.",
+      "group": "SpongeTeach"
+    },
+    {
+      "id": "PC_Gil_SpongeTeach_40",
+      "actions": [
+        "move"
+      ],
+      "text": "Flick the left stick in the direction of the arrow when the wand is directly over it. Then release the stick again.",
+      "group": "SpongeTeach"
+    },
+    {
+      "id": "PC_Spr_HerbDiffTeach_11",
+      "actions": [
+        "move"
+      ],
+      "text": "Flick the left stick in the direction of the arrow when the wand is directly over it. Then release the stick again.",
+      "group": "HerbDiffTeach"
+    },
+    {
+      "id": "PC_Gil_Dueling_68",
+      "actions": [
+        "potion"
+      ],
+      "text": "Press Y on your left controller to select the next duelling spell.",
+      "group": ""
+    },
+    {
+      "id": "PC_Gil_Dueling_69",
+      "actions": [
+        "cast"
+      ],
+      "text": "Aim your right controller at your opponent. Hold the right trigger to charge your spell, then release it to cast.",
+      "group": ""
+    },
+    {
+      "id": "PC_Nar_AimSpellTut_02",
+      "actions": [
+        "cast"
+      ],
+      "text": "Let us practise aiming. Hold the right trigger and point your wand at a target with your right controller.",
+      "group": ""
+    },
+    {
+      "id": "PC_Nar_AimSpellTut_03",
+      "actions": [
+        "cast"
+      ],
+      "text": "Release the right trigger as soon as the Flipendo symbol appears!",
+      "group": ""
+    },
+    {
+      "id": "PC_Nar_QuidNar_01",
+      "actions": [
+        "move"
+      ],
+      "text": "Use the left stick to steer your broom left, right, up and down. You can look around freely while flying.",
+      "group": ""
+    },
+    {
+      "id": "PC_Nar_QuidNar_03",
+      "actions": [
+        "jump"
+      ],
+      "text": "Fly close to the Snitch, then press A on your right controller to catch it.",
+      "group": ""
+    },
+    {
+      "id": "PC_Nar_WhompTut1_64",
+      "actions": [
+        "cast"
+      ],
+      "text": "Hold the right trigger and aim with your wand. Release the trigger to cast your spell.",
+      "group": ""
+    },
+    {
+      "id": "PC_Nar_WhompTut1_66",
+      "actions": [
+        "show_health"
+      ],
+      "text": "Chocolate Frogs restore your energy, and they taste delicious! Hold the lower grip button on your left controller to see your inventory at your left hand. It shows your energy, beans and other collected items.",
+      "group": ""
+    },
+    {
+      "id": "PC_Nar_WhompTut1_78",
+      "actions": [
+        "move",
+        "turn"
+      ],
+      "text": "Move Harry with the left stick. Use the right stick to turn in steps.",
+      "group": ""
+    },
+    {
+      "id": "PC_Nar_WhompTut1_80",
+      "actions": [
+        "cast"
+      ],
+      "text": "Point your right controller at an object. Release the right trigger when the spell symbol appears.",
+      "group": ""
+    },
+    {
+      "id": "PC_Nar_WhompTut1_81",
+      "actions": [
+        "menu"
+      ],
+      "text": "Press B on your right controller to open the game menu. Select the Folio Magi to see the wizard cards you have collected.",
+      "group": ""
+    },
+    {
+      "id": "PC_Nar_WhompTut1_82",
+      "actions": [
+        "menu"
+      ],
+      "text": "Press B on your right controller to open the menu and see your current objectives.",
+      "group": ""
+    },
+    {
+      "id": "PC_Owd_QuidIntro_06",
+      "actions": [
+        "move"
+      ],
+      "text": "Use the left stick to steer your broom left, right, up and down. You can look around freely while flying.",
+      "group": ""
+    },
+    {
+      "id": "PC_Owd_QuidIntro_07",
+      "actions": [
+        "boost",
+        "show_health"
+      ],
+      "text": "Hold the lower grip button on your right controller to fly faster. Use the left grip button to brake.",
+      "group": ""
+    },
+    {
+      "id": "PC_Owd_QuidIntro_10",
+      "actions": [
+        "jump"
+      ],
+      "text": "Press A on your right controller to reach for the Snitch. You will catch it if you are close enough.",
+      "group": ""
+    },
+    {
+      "id": "PC_Owd_QuidIntro_21",
+      "actions": [
+        "jump"
+      ],
+      "text": "When you are close to another Seeker, press A on your right controller to bump them out of the way.",
+      "group": ""
+    },
+    {
+      "id": "PC_Owd_QuidIntro_23",
+      "actions": [
+        "jump"
+      ],
+      "text": "A nearby Seeker can bump you too. Quickly press A on your right controller before they get you first.",
+      "group": ""
+    },
+    {
+      "id": "PC_Owd_QuidTut1_34",
+      "actions": [
+        "jump"
+      ],
+      "text": "Press A on your right controller now to catch the Snitch!",
+      "group": ""
+    },
+    {
+      "id": "PC_Ron_WhompTut1_70",
+      "actions": [
+        "jump"
+      ],
+      "text": "Move towards the ledge and press A on your right controller to jump.",
+      "group": ""
+    },
+    {
+      "id": "PC_Snp_PotionTeach_06",
+      "actions": [
+        "potion"
+      ],
+      "text": "Your Wiggenweld Potion is ready. Press Y on your left controller to drink it. Sit down, Potter.",
+      "group": ""
+    }
+  ]
+}

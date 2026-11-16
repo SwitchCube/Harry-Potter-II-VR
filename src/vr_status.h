@@ -6,7 +6,7 @@ static VrPanel statusPanel;static VrMenu statusOverlay("left-status");
 static ULONGLONG statusAutoUntil=0,statusLastRead=0;static int statusAutoPage=0,statusOffset=0;static std::wstring statusFocus;
 static const wchar_t* statusLabel(const std::wstring& n,int& page){
  struct Label {const wchar_t* name;const wchar_t* text;int page;};
- static const Label labels[]={
+ const Label labels[]={
  {L"StatusItemHealth",tr(L"Leben",L"Health"),0},{L"StatusItemJellybeans",tr(L"Bohnen",L"Beans"),0},{L"StatusItemWiggenWell",tr(L"Heiltr\u00e4nke",L"Wiggenweld potions"),0},
  {L"StatusItemFlobberMucus",tr(L"Flubberwurmschleim",L"Flobberworm mucus"),0},{L"StatusItemWiggenBark",tr(L"Wiggenbaumrinde",L"Wiggentree bark"),0},{L"StatusItemBicorn",tr(L"Zweihorn-Horn",L"Bicorn horn"),0},{L"StatusItemBoomslang",tr(L"Baumschlangenhaut",L"Boomslang skin"),0},{L"StatusItemBitOGoyle",tr(L"Goyles Haar",L"Goyle's hair"),0},
  {L"StatusItemBronzeCards",tr(L"Bronzekarten",L"Bronze cards"),1},{L"StatusItemSilverCards",tr(L"Silberkarten",L"Silver cards"),1},{L"StatusItemGoldCards",tr(L"Goldkarten",L"Gold cards"),1},{L"StatusItemWizardCards",tr(L"Zaubererkarten",L"Wizard cards"),1},{L"StatusItemStars",tr(L"Herausforderungssterne",L"Challenge stars"),1},
@@ -44,15 +44,15 @@ static void updateStatusOverlay(){
  if(!held){statusOffset=0;for(unsigned i=0;i<rows.size();++i)if(rows[i]->name==statusFocus)statusOffset=(i/5)*5;}
  if(statusOffset>=int(rows.size()))statusOffset=0;
  if(held){static bool latched=false;float y=vrInput.move.y;if(std::fabs(y)<.3f)latched=false;if(std::fabs(y)>.7f&&!latched){statusOffset=y<0?statusOffset+5:statusOffset-5;if(statusOffset<0)statusOffset=std::max(0,((int(rows.size())-1)/5)*5);if(statusOffset>=int(rows.size()))statusOffset=0;latched=true;}}
- std::wstring content=std::to_wstring(page)+L":"+std::to_wstring(statusOffset);for(auto r:rows)content+=r->name+std::to_wstring(r->count)+L"/"+std::to_wstring(r->maximum);
+ std::wstring content=std::to_wstring(vrLocaleRevision)+L":"+std::to_wstring(page)+L":"+std::to_wstring(statusOffset);for(auto r:rows)content+=r->name+std::to_wstring(r->count)+L"/"+std::to_wstring(r->maximum);
  static std::wstring oldContent;
  if(!statusPanel.dc||content!=oldContent){
   oldContent=content;statusPanel.open(720,480);statusPanel.clear();const wchar_t* titles[]={tr(L"Leben & Vorr\u00e4te",L"Health & supplies"),tr(L"Karten & Sammelobjekte",L"Cards & collectibles"),tr(L"Hauspunkte",L"House points")};statusPanel.text(30,12,660,titles[page],34,RGB(236,198,116));
   int y=95;for(unsigned i=statusOffset;i<rows.size()&&i<unsigned(statusOffset+5);++i){auto r=rows[i];std::wstring count=std::to_wstring(r->count);if(r->maxShown&&r->maximum>0)count+=L" / "+std::to_wstring(r->maximum);statusPanel.text(30,y,480,r->label.c_str(),30);statusPanel.text(520,y,170,count.c_str(),34);y+=58;}
-  if(rows.empty())statusPanel.text(30,100,650,L"Noch keine Eintr\u00e4ge",28);
+  if(rows.empty())statusPanel.text(30,100,650,tr(L"Noch keine Eintr\u00e4ge",L"No entries yet"),28);
   statusPanel.text(30,405,660,tr(L"Stick: links/rechts = Seite | oben/unten = Liste",L"Stick: left/right = page | up/down = list"),23);statusPanel.upload(startup.mode==3?runtime.adapter:0,&bridge);
   log("{\"event\":\"hand_status_texture\",\"page\":%d,\"items\":%u,\"width\":720,\"height\":480,\"gpu_verified\":true}",page,unsigned(rows.size()));
  }
  if(startup.mode==3){auto pose=hpvr::healthPlane(copyMatrix(vrInput.leftGrip.pose.mDeviceToAbsoluteTracking),copyMatrix(runtime.poses[0].mDeviceToAbsoluteTracking));pose.m[1][3]-=.20f;statusOverlay.width=.32f;statusOverlay.submit(runtime,statusPanel.texture.textures[0],720,480,false,false,&pose);}
 }
-static void closeUi(){closePresentation();menuHint.close();menuHintPanel.close();bindingPanel.close();statusOverlay.close();statusPanel.close();handRows.clear();previousStatus.clear();statusAutoUntil=healthAutoUntil=0;bindingDismissedPage=nullptr;bindingPanelActive=bindingPanelConsumed=menuPointerConsumed=false;}
+static void closeUi(){closePresentation();menuHint.close();menuHintPanel.close();bindingPanel.close();settingsEntry.close();settingsEntryPaints=0;statusOverlay.close();statusPanel.close();handRows.clear();previousStatus.clear();statusAutoUntil=healthAutoUntil=0;settingsOwner=settingsButton=nullptr;bindingPanelActive=bindingPanelConsumed=menuPointerConsumed=false;}

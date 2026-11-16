@@ -1,0 +1,10 @@
+{
+  "id": "PC_Nar_AimSpellTut_03",
+  "variant": "default",
+  "text": "Release the right trigger as soon as the Flipendo symbol appears!",
+  "seconds": 3.92,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "bc091ed566f8da1ffb3c3c7e0a2714cb3797d3bbe6d5be531289c7b17958d7f9"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "PC_Owd_QuidIntro_07",
+  "variant": "default",
+  "text": "Halte die untere Grifftaste am rechten Controller, um schneller zu fliegen. Mit der linken Grifftaste kannst du bremsen.",
+  "seconds": 5.6,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "ae5635fd8bf07af12153a204363186dc17050f50df1d1d0f1f0bbc9f525e91d6"
+}

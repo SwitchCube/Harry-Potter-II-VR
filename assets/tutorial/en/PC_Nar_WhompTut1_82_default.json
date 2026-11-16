@@ -1,0 +1,10 @@
+{
+  "id": "PC_Nar_WhompTut1_82",
+  "variant": "default",
+  "text": "Press B on your right controller to open the menu and see your current objectives.",
+  "seconds": 5.76,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "d53a54c3b0d484a21caddf50e3a582242975db2a099c82b531323caf9df891a2"
+}

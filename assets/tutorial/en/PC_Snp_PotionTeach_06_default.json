@@ -1,0 +1,10 @@
+{
+  "id": "PC_Snp_PotionTeach_06",
+  "variant": "default",
+  "text": "Your Wiggenweld Potion is ready. Press Y on your left controller to drink it. Sit down, Potter.",
+  "seconds": 7.28,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "2b390d8e0f932afcfb6852df57cdab50be253f20c1296e5b1463421b23e1a2b8"
+}

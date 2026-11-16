@@ -1,0 +1,10 @@
+{
+  "id": "PC_Owd_QuidIntro_21",
+  "variant": "default",
+  "text": "When you are close to another Seeker, press A on your right controller to bump them out of the way.",
+  "seconds": 4.72,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "f83711dc16ec1299a7ecac775621f52b980e2703eb9123444be037147bd501c9"
+}

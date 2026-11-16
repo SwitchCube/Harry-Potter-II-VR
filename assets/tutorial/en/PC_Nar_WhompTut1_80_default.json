@@ -1,0 +1,10 @@
+{
+  "id": "PC_Nar_WhompTut1_80",
+  "variant": "default",
+  "text": "Point your right controller at an object. Release the right trigger when the spell symbol appears.",
+  "seconds": 6.4,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "0d9d65027d3666f6c9eeabcbfe1681e854869230dc92778cf2150cbdfc082839"
+}

@@ -11,6 +11,9 @@
 !/release/
 !/docs/
 !/config/
+!/assets/
+/assets/*
+!/assets/tutorial/
 /config/*
 !/config/*.lock.json
 !/config/target-fingerprint.json
@@ -18,6 +21,8 @@
 !/config/pair-targets.json
 !/config/native-targets.json
 !/config/hp2vr.ini
+!/config/tutorials-de.json
+!/config/tutorials-en.json
 !/config/vr/
 
 # Local settings, game assets, build products and personal evidence stay local.

@@ -1,0 +1,10 @@
+{
+  "id": "PC_Gil_Dueling_68",
+  "variant": "default",
+  "text": "Mit der Y-Taste am linken Controller wechselst du im Duell zum nächsten Zauberspruch.",
+  "seconds": 5.92,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "fa2e3dad8f1a9805592d7188c4c354cc852b24dbc923ff69c7a2a3c38070610d"
+}

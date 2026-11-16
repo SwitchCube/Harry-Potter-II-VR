@@ -1,0 +1,10 @@
+{
+  "id": "PC_Snp_PotionTeach_06",
+  "variant": "default",
+  "text": "Der Mega-Power-Trank ist fertig. Drücke Y am linken Controller, um davon zu trinken. Setz dich wieder hin, Potter.",
+  "seconds": 7.92,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "5a1e6e5d24f5aeac331ea1483e0a086faa00e00ab747844fe58486b37948d075"
+}

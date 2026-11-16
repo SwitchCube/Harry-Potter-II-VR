@@ -1,0 +1,10 @@
+{
+  "id": "PC_Flt_CharmSkurgTeach_29",
+  "variant": "default",
+  "text": "Bewege den linken Stick kurz in die Richtung des Pfeils, sobald der Zauberstab genau darüber steht. Lass den Stick danach wieder los.",
+  "seconds": 9.76,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "fe2a2382116f4646c076191a33ba6a17935012e6a261f62ebbffea6d3e4be204"
+}

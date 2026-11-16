@@ -1,6 +1,13 @@
 #pragma once
-// Language is selected from the installed game, never from a developer's PC.
-// Keep identifiers and the original game's localized resources untouched.
-static bool vrEnglish=false;
-static void vrLoadLocale(){wchar_t value[16]={};GetEnvironmentVariableW(L"HP2VR_LANGUAGE",value,16);vrEnglish=!_wcsicmp(value,L"en");}
+// Mod language only; native game resources and locale remain unchanged.
+static bool vrEnglish=false,vrAutoEnglish=false;
+static int vrLanguageChoice=0;static unsigned vrLocaleRevision=0;
+static void vrLoadLocale(const std::wstring& root=L""){
+ wchar_t value[32]={};GetEnvironmentVariableW(L"HP2VR_LANGUAGE",value,32);
+ if(!*value&&!root.empty())GetPrivateProfileStringW(L"Engine.Engine",L"Language",L"int",value,32,(root+L"\\system\\Default.ini").c_str());
+ vrAutoEnglish=_wcsicmp(value,L"de")&&_wcsicmp(value,L"ger");
+ vrLanguageChoice=root.empty()?0:int(GetPrivateProfileIntW(L"VR",L"Language",0,(root+L"\\config\\vr-preferences.ini").c_str()));
+ if(vrLanguageChoice<0||vrLanguageChoice>2)vrLanguageChoice=0;
+ vrEnglish=vrLanguageChoice==2||(vrLanguageChoice==0&&vrAutoEnglish);++vrLocaleRevision;
+}
 static const wchar_t* tr(const wchar_t* de,const wchar_t* en){return vrEnglish?en:de;}

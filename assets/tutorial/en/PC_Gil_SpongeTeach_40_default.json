@@ -1,0 +1,10 @@
+{
+  "id": "PC_Gil_SpongeTeach_40",
+  "variant": "default",
+  "text": "Flick the left stick in the direction of the arrow when the wand is directly over it. Then release the stick again.",
+  "seconds": 6.96,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "6be024da5824bb63587abb95cf4ff1de71f4aa4ad5ce4255b8f72ea93c0ed2d7"
+}

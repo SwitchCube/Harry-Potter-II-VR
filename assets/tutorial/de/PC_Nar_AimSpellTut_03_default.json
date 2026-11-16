@@ -1,0 +1,10 @@
+{
+  "id": "PC_Nar_AimSpellTut_03",
+  "variant": "default",
+  "text": "Lass den rechten Trigger los, sobald das Flipendo-Zaubersymbol erscheint!",
+  "seconds": 4.08,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "248d068823c1a8f9d016dd919ea979826c32d3843f964e7ba31f526ecb8f662b"
+}

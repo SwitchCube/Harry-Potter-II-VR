@@ -23,3 +23,10 @@ These compilers and SDKs are not shipped in the runtime package.
 Game files are not included. The private Large Address Aware runtime image is
 created locally from the user's verified original Game.exe; the original is
 never modified. SteamVR itself is not included and is installed separately.
+
+Tutorial voices: 60 synthetic German/English PCM clips generated with
+Qwen/Qwen3-TTS-12Hz-1.7B-Base for the mod's rewritten control instructions.
+These are AI-generated replacements, not official dialogue recordings.
+Source catalogues and per-clip generation metadata are included in the source
+repository. Only the generated sound packages are included in this ZIP;
+original reference recordings and model weights are not distributed.

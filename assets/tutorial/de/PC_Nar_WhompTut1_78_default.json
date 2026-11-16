@@ -1,0 +1,10 @@
+{
+  "id": "PC_Nar_WhompTut1_78",
+  "variant": "default",
+  "text": "Mit dem linken Stick bewegst du Harry. Mit dem rechten Stick kannst du dich in Schritten drehen.",
+  "seconds": 5.28,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "2fb16e84cc926c6d33c62c03a1b01d65f8bf75ff2a61aba1dfe20e2bed45e4cd"
+}

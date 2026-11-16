@@ -1,0 +1,10 @@
+{
+  "id": "PC_Nar_WhompTut1_81",
+  "variant": "default",
+  "text": "Press B on your right controller to open the game menu. Select the Folio Magi to see the wizard cards you have collected.",
+  "seconds": 8.0,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "2d8333f583d245263500a07dfbb3bca1c2295faf8abd86642203e434189cb441"
+}

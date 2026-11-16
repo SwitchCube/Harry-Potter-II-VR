@@ -1,0 +1,10 @@
+{
+  "id": "PC_Owd_QuidIntro_21",
+  "variant": "default",
+  "text": "Bist du nah an einem anderen Sucher dran, drücke A am rechten Controller, um ihn aus dem Weg zu schubsen.",
+  "seconds": 5.04,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "abfd09e607312f359e579c32c0d468ffb845d17007bb16d20f75638636d7f337"
+}

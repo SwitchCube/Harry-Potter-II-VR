@@ -1,0 +1,10 @@
+{
+  "id": "PC_Ron_WhompTut1_70",
+  "variant": "default",
+  "text": "Laufe auf den Vorsprung zu und drücke A am rechten Controller, um zu springen.",
+  "seconds": 4.08,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "250509848c7c3445645162eeed0147d885ee37ebf6a5e54ac2f5cd7871c7eee4"
+}

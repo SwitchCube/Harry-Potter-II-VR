@@ -1,0 +1,10 @@
+{
+  "id": "PC_Nar_WhompTut1_64",
+  "variant": "default",
+  "text": "Halte den rechten Trigger gedrückt und ziele mit deinem Zauberstab. Lass den Trigger los, um zu zaubern.",
+  "seconds": 6.56,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "16ef91c811ad75f0aa4f9de967e4d7cd4da2241006982f3c15a58a7dd8e0313d"
+}

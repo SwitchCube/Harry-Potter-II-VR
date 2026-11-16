@@ -53,6 +53,7 @@ static void __fastcall lodMeshHook(void* self,void*,void* frame,void* sprite,voi
  if(vrRendering&&((actor==vrPlayer&&!worldSceneActive)||(actor==vrWeapon&&!usingSword()))&&!reflectedView(frame)){++hiddenMeshes;return;}originalLodMesh(self,frame,sprite,actor,coords,flags);if(vrRendering){noteCarryMesh(actor);noteSwordMesh(actor);noteReflectedPlayer(frame,actor);}
 }
 static void* __fastcall createHook(void* renderer,void*,void* viewport,Vec position,Rot rotation,void* bounds){
+ hallRenderer=renderer;
  if(levelLoadDepth){vrRendering=false;vrFrame=nullptr;return createFrame(renderer,viewport,position,rotation,bounds);}
  if(mem<DWORD>(renderer,0xa8)!=0||secondary)return createFrame(renderer,viewport,position,rotation,bounds);
  vrFrame=nullptr;vrRendering=false;if(startup.mode==3)runtime.renderReady=false;
@@ -90,11 +91,14 @@ static void* __fastcall createHook(void* renderer,void*,void* viewport,Vec posit
   }
   if(!trackingOrigin.ready)trackingOrigin.recenter(h,(lessonWorldActive?rotation.yaw:mem<Rot>(actor,0x128).yaw)*(hpvr::pi/32768.0f));
   mechanicView(actor,h,rotation);
-  if(cinemaActive){vrProfile.active=false;vrProfile.previousEnd=0;fpu.restore();return createFrame(renderer,viewport,position,rotation,bounds);}
+  hallActive=hallWanted();
+  if(hallActive){hallPrepare(h);vrProfile.active=false;vrProfile.previousEnd=0;fpu.restore();auto original=createFrame(renderer,viewport,position,rotation,bounds);vrProjection=hpvr::projection(tangents,float(mem<DWORD>(original,0xa8))/mem<DWORD>(original,0xac));return original;}
+  hallLeft();
   advanceViewAnchor(actor);
   // The original exercise camera is centred on its world-space arrow shape.
   // Use that eye anchor only while the stock PlayGame state owns player input.
   Vec anchor=position;if(!lessonWorldActive&&!worldSceneActive){anchor=playerViewAnchor();}
+  tutorialViewAnchor=anchor;
   for(int e=0;e<2;++e){auto pose=hpvr::multiply(h,eye[e]);eyePosition[e]=trackingOrigin.position(pose,anchor,vrSettings.units);eyeRotation[e]=hpvr::rotation(pose,trackingOrigin.baseYaw);pitchFlightEye(anchor,eyePosition[e],eyeRotation[e]);}
   if(startup.mode==5&&worldSceneActive&&profileFlag(L"replay-mechanics-cinema.flag")){static unsigned samples=0;if(++samples%60==1)log(R"({"event":"cinematic_camera_sample","spatial_option":%s,"anchor":[%.6g,%.6g,%.6g],"player_distance":%.6g,"eye_distance":%.6g,"camera_yaw":%d})",vrPresentation.spatialScenes?"true":"false",anchor.x,anchor.y,anchor.z,std::sqrt(hpvr::dot(hpvr::sub(anchor,mem<Vec>(actor,0x11c)),hpvr::sub(anchor,mem<Vec>(actor,0x11c)))),std::sqrt(hpvr::dot(hpvr::sub(eyePosition[0],eyePosition[1]),hpvr::sub(eyePosition[0],eyePosition[1]))),rotation.yaw);}
   headBlocked=!clearHead(actor,anchor,eyePosition[0])||!clearHead(actor,anchor,eyePosition[1]);if(headBlocked)++blockedHeadFrames;
@@ -173,7 +177,7 @@ static void vrWorld(void* renderer,void* frame){
   static bool textureFixtureDone=false;bool checkTextures=!textureFixtureDone&&scriptedTextureFixture.size()==4;
   unsigned textureHashes[4]={};if(checkTextures)for(unsigned i=0;i<4;++i)if(i!=1){scriptedTickHook(scriptedTextureFixture[i],nullptr,0);textureHashes[i]=texturePixelHash(scriptedTextureFixture[i]);}
   hr(device->Clear(0,nullptr,D3DCLEAR_TARGET|D3DCLEAR_ZBUFFER,0,1,0),"Clear left eye");fpu.restore();{VrStageTimer measured(VrProfile::WorldLeft);originalWorld(renderer,frame);}
-  drawWand(device,frame,0);
+  drawWand(device,frame,0);drawTutorial(device,frame,0);
   if(headBlocked)hr(device->Clear(0,nullptr,D3DCLEAR_TARGET|D3DCLEAR_ZBUFFER,0,1,0),"Head collision fade");
   hr(device->EndScene(),"End left eye");IDirectDrawSurface7* surface=nullptr;hr(device->GetRenderTarget(&surface),"Get eye surface");
   bool captureLesson=lessonWorldActive&&lessonCaptureRequested&&!captureFirst&&!captureMotion;
@@ -189,7 +193,7 @@ static void vrWorld(void* renderer,void* frame){
   Vec origin=mem<Vec>(second,0x34);need(std::fabs(origin.x-eyePosition[1].x)<.001f&&std::fabs(origin.y-eyePosition[1].y)<.001f&&std::fabs(origin.z-eyePosition[1].z)<.001f,"Right eye actual origin differs");
   void* engine=mem<void*>(renderer,0x2c),*audio=mem<void*>(engine,0x5c);mem<void*>(engine,0x5c)=nullptr;fpu.restore();
   {VrStageTimer measured(VrProfile::WorldRight);originalWorld(renderer,second);}mem<void*>(engine,0x5c)=audio;++extraDraws;
-  drawWand(device,second,1);
+  drawWand(device,second,1);drawTutorial(device,second,1);
   if(headBlocked)hr(device->Clear(0,nullptr,D3DCLEAR_TARGET|D3DCLEAR_ZBUFFER,0,1,0),"Right head collision fade");
   hr(device->EndScene(),"End right eye");gpuCapture(surface,1,captureFirst?L"native-b.bmp":captureMotion?L"native-motion-b.bmp":captureMechanic?mechanicCapturePath(1):nullptr,captureFirst);if(captureMechanic)mechanicCaptureIndex=0;
   {VrStageTimer measured(VrProfile::Finish);hr(device->BeginScene(),"Resume game scene");surface->Release();secondary=false;finishFrame(renderer);fpu.restore();

@@ -1,0 +1,10 @@
+{
+  "id": "PC_Nar_QuidNar_03",
+  "variant": "default",
+  "text": "Fliege dicht an den Schnatz heran und drücke dann A am rechten Controller, um ihn zu fangen.",
+  "seconds": 6.32,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "f87ba6348f0bd3c5e6f1be7f73bab9cb3413f1dba9affbf7150adb217557f4a8"
+}

@@ -50,7 +50,7 @@ def check_mechanics(run,events):
   if not rows('polish_actor'):raise ValueError('No original actors inspected')
   return dict(kind=kind,actors=rows('polish_actor'))
  if kind=='cinema':
-  if len(rows('unskippable_fixture_world'))!=1 or len(rows('unskippable_fixture_restored'))!=1:raise ValueError('Original scene skip policy switch incomplete')
+  if len(rows('unskippable_fixture_cinema'))!=1 or len(rows('unskippable_fixture_restored'))!=1:raise ValueError('Original scene skip policy switch incomplete')
   option=rows('spatial_option_fixture')
   if [e['spatial'] for e in option]!=[True,False] or any(not e['persisted'] for e in option):raise ValueError('Optional cinematic camera switch not exercised')
   if not any(e['active'] and e['skippable'] and e['option'] for e in rows('world_cutscene')):raise ValueError('Skippable original scene did not render in stereo')

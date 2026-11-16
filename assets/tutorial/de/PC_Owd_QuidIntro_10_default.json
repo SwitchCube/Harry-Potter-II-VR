@@ -1,0 +1,10 @@
+{
+  "id": "PC_Owd_QuidIntro_10",
+  "variant": "default",
+  "text": "Drücke A am rechten Controller, um nach dem Schnatz zu greifen. Wenn du nahe genug dran bist, schnappst du ihn.",
+  "seconds": 6.080041666666666,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "89b7fda45d49f6b70d06471ed6b94d0b851195a7c89aa062273ce260d31d23b2"
+}

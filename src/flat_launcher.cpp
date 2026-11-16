@@ -103,7 +103,7 @@ int wmain(int argc,wchar_t** argv){
   std::wstring root=system.substr(0,system.find_last_of(L"\\"));
   require(!_wcsicmp(exe.c_str(),(root+L"\\system\\Game.exe").c_str()),"Flat requires original system/Game.exe");
   wchar_t self[32768];require(GetModuleFileNameW(nullptr,self,32768)!=0,"Flat launcher location");
-  root=vrDataRoot(root);vrLoadLocale();
+  root=vrDataRoot(root);vrLoadLocale(root);
   require(!_wcsnicmp(self,(root+L"\\build\\").c_str(),root.size()+7),"Flat launcher must be inside project build");
   // Flat executes the user's original game without interpreting its internal ABI.
   frontendMode=true;frontendVr=false;frontendSettings=root+L"\\config\\launcher.ini";no_links(frontendSettings);

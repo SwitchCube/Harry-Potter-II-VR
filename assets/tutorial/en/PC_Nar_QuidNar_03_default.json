@@ -1,0 +1,10 @@
+{
+  "id": "PC_Nar_QuidNar_03",
+  "variant": "default",
+  "text": "Fly close to the Snitch, then press A on your right controller to catch it.",
+  "seconds": 5.2800416666666665,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "4d931b6216cf28f698bb21734f934df9577f4446f79c4a3728dd227c0fca2916"
+}

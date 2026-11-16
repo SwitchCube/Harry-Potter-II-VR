@@ -1,4 +1,4 @@
-Harry Potter II VR v1.0.2
+Harry Potter II VR v1.0.3
 
 DE: ZIP neben den vorhandenen System-Ordner entpacken, dann Start-HP2VR.cmd
 starten und im Hauptmenü Flat oder VR wählen. Für VR SteamVR und Headset

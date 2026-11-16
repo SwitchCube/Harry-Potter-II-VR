@@ -5,6 +5,8 @@ from inspect_pe import PE
 from project_paths import inside,write_text
 
 SYMBOLS=[
+ ('localize','Core.dll','?Localize@@YAPBGPBG000H@Z'),
+ ('soundload','Core.dll','?StaticLoadObject@UObject@@SAPAV1@PAVUClass@@PAV1@PBG2KPAVUPackageMap@@@Z'),
  ('scriptedtick','Engine.dll','?Tick@UScriptedTexture@@UAEXM@Z'),
  ('viewportmessage','WinDrv.dll','?ViewportWndProc@UWindowsViewport@@QAEJIIJ@Z'),
  ('viewportwindow','WinDrv.dll','?GetWindow@UWindowsViewport@@UAEPAXXZ'),

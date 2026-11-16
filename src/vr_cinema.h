@@ -1,5 +1,5 @@
 #pragma once
-static VrBridge cinemaBridge,cinemaBlack;static VrMenu cinemaOverlay("cinema");static unsigned cinemaFrames=0;
+static VrBridge cinemaBridge;static VrMenu cinemaOverlay("cinema");static unsigned cinemaFrames=0;
 static bool detectCinema(void* actor){
  void* lesson=objectField(actor,L"CurrSpellLesson");
  // Exact UObject::GetStateFrame / execGetStateName fields verified in Core.dll.
@@ -17,13 +17,13 @@ static bool detectCinema(void* actor){
  // Keep the trade in first person through that release, then relinquish ownership.
  static unsigned tradeGeneration=~0u;if(tradeGeneration!=levelGeneration){vendorWorldActive=false;tradeGeneration=levelGeneration;}
  if(vendorEngaged())vendorWorldActive=true;else if(!full)vendorWorldActive=false;
- bool trade=vendorWorldActive;bool skip=full&&skippableScene(actor);bool world=full&&!interactive&&!reward&&!trade&&(!skip||vrPresentation.spatialScenes);
+ bool trade=vendorWorldActive;bool skip=full&&skippableScene(actor);bool world=full&&!interactive&&!reward&&!trade&&vrPresentation.spatialScenes;
  if(world!=worldSceneActive){worldSceneActive=world;controlsArmed=false;log("{\"event\":\"world_cutscene\",\"active\":%s,\"stereo\":true,\"skippable\":%s,\"original_camera\":true,\"option\":%s}",world?"true":"false",skip?"true":"false",vrPresentation.spatialScenes?"true":"false");}
  if(interactive||world||reward||trade)full=false;
  if(full!=cinemaActive){log("{\"event\":\"cinema_mode\",\"active\":%s,\"original_camera\":true,\"world_fixed_screen\":true}",full?"true":"false");cinemaOverlay.hide();if(!full){trackingOrigin.ready=false;controlsArmed=false;}}
  return full;
 }
-static void closeCinema(){cinemaOverlay.close();cinemaBridge.close();cinemaBlack.close();cinemaActive=false;lessonWorldActive=false;worldSceneActive=false;cardRewardActive=false;vendorWorldActive=false;rewardRainStarted=0;}
+static void closeCinema(){cinemaOverlay.close();cinemaBridge.close();closeHall();cinemaActive=false;lessonWorldActive=false;worldSceneActive=false;cardRewardActive=false;vendorWorldActive=false;rewardRainStarted=0;}
 static void renderCinema(IDirect3DDevice7* device){
  if(startup.mode==3&&!runtime.renderReady)return; // Loading/menu unlocks need not follow a new WaitGetPoses.
  hr(device->EndScene(),"Finish original cinematic frame");IDirectDrawSurface7* surface=nullptr;hr(device->GetRenderTarget(&surface),"Get cinematic target");
@@ -35,9 +35,7 @@ static void renderCinema(IDirect3DDevice7* device){
  }catch(...){surface->Unlock(nullptr);surface->Release();throw;}
  hr(surface->Unlock(nullptr),"Unlock cinema");surface->Release();cinemaBridge.flush();
  if(startup.mode==3&&runtime.compositor->CanRenderScene()){
-  if(!cinemaBlack.device){cinemaBlack.open(runtime.adapter,64,64,false,&cinemaBridge);float black[4]={0,0,0,1};for(unsigned eye=0;eye<2;++eye){ID3D11RenderTargetView* view=nullptr;VrBridge::check(cinemaBlack.device->CreateRenderTargetView(cinemaBlack.textures[eye],nullptr,&view),"Create cinema background");cinemaBlack.context->ClearRenderTargetView(view,black);view->Release();}cinemaBlack.flush();}
-  for(int eye=0;eye<2;++eye){auto r=runtime.submitEye(eye,cinemaBlack.textures[eye]);if(VrRuntime::transientSubmit(r)){log("{\"event\":\"submit_deferred\",\"path\":\"cinema\",\"eye\":%d,\"error\":%d}",eye,int(r));continue;}if(r!=EVRCompositorError_VRCompositorError_None)throw std::runtime_error("Submit cinema background error="+std::to_string(int(r)));}
-  cinemaOverlay.width=2.3f;cinemaOverlay.distance=2.2f;cinemaOverlay.submit(runtime,cinemaBridge.textures[0],d.dwWidth,d.dwHeight);
+  auto plane=hallScreenPose(2.4f);cinemaOverlay.width=2.3f;cinemaOverlay.submit(runtime,cinemaBridge.textures[0],d.dwWidth,d.dwHeight,false,false,&plane);
  }else cinemaOverlay.hide();
  ++cinemaFrames;hr(device->BeginScene(),"Resume original cinematic target");
 }

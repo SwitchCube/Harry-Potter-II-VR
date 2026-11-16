@@ -51,6 +51,7 @@ static VrInput vrInput;
 static VrPresentation vrPresentation;
 #include "vr_settings.h"
 static VrSettings vrSettings;
+#include "vr_preferences.h"
 static void* currentEngine=nullptr;
 static unsigned inputTransitions=0,wandCursorCalls=0,wandProjectileCalls=0;
 static VrBridge bridge,menuBridge;static VrMenu vrMenu;
@@ -76,9 +77,15 @@ static bool statusInspect=false;
 static int statusPage=0;
 static ULONGLONG healthAutoUntil=0;
 static void drawWand(IDirect3DDevice7*,void*,unsigned);
+static Vec tutorialViewAnchor={};
+static void drawTutorial(IDirect3DDevice7*,void*,unsigned);static void updateTutorial();static void closeTutorial();static void tutorialPlayed(void*);static void* tutorialResolveSound(void*);static bool tutorialIsPcm(void*);
 static void replayTravel();
 static bool bindingPanelActive=false,bindingPanelConsumed=false,menuPointerConsumed=false;
 static void updateBindingPanel(bool usable);
+static bool settingsInternal(void*,void*,void*);
+static void settingsNativeButton();static void settingsTestTick();static void tutorialTestTick();
+static bool hallRendering=false,hallActive=false;static void* hallRenderer=nullptr;
+static void hallLeft();static bool hallWanted();static void hallPrepare(const hpvr::Mat&);static void renderHall(IDirect3DDevice7*);static void closeHall();static hpvr::Mat hallScreenPose(float);
 static bool cinemaActive=false,lessonCaptureRequested=false,lessonWorldActive=false;
 static bool worldSceneActive=false,cardRewardActive=false,vendorWorldActive=false;
 static void replayStairs();static void replayPolish();static void replayMirror();static void replayVendor();static void vendorReplayInput();static bool vendorEngaged();static bool vendorPrompt();static bool vendorInternal(void*,void*,void*);static void vendorInput(bool,float,float,float,float,bool,bool);
@@ -97,7 +104,7 @@ struct CarryRenderScope {void* object=nullptr;Vec location={};Rot rotation={};in
 static bool detectCinema(void* actor);
 static void closeCinema();
 static bool vrRendering=false;static unsigned levelLoadDepth=0,levelGeneration=0;
-static unsigned vrFrames=0,submittedPairs=0,gpuVerifiedEyes=0,hiddenMeshes=0;
+static unsigned vrFrames=0,hallTotalFrames=0,submittedPairs=0,gpuVerifiedEyes=0,hiddenMeshes=0;
 static ULONGLONG firstVrPairTime=0;
 static FILE* logFile=nullptr;
 static NativeStartup startup={};
@@ -168,7 +175,7 @@ static void capture(IDirectDrawSurface7* surface,const wchar_t* file){
 static void __fastcall tickHook(void* self,void*,float delta){
     if(active){log("{\"event\":\"fatal\",\"reason\":\"Tick during extra draw\"}");stopOwnProcess(126);}
     ++ticks;currentEngine=self;originalTick(self,delta);
-    try{replayTravel();updateStatus();}catch(const std::exception& e){log("{\"event\":\"fatal\",\"stage\":\"post_tick_command\",\"reason\":\"%s\"}",e.what());stopOwnProcess(136);}
+    try{replayTravel();updateStatus();updateTutorial();settingsTestTick();tutorialTestTick();}catch(const std::exception& e){log("{\"event\":\"fatal\",\"stage\":\"post_tick_command\",\"reason\":\"%s\"}",e.what());stopOwnProcess(136);}
 }
 static std::map<std::pair<void*,void*>,bool> renderedTextures;
 static std::map<void*,bool> preparedScriptedTextures;
@@ -176,6 +183,7 @@ static std::vector<void*> scriptedTextureFixture;
 using ScriptedTick=void(__thiscall*)(void*,float);
 static ScriptedTick originalScriptedTick=nullptr;
 static void __fastcall scriptedTickHook(void* texture,void*,float delta){
+ if(hallRendering)return;
  // UScriptedTexture::Tick restores SourceTexture pixels BEFORE RenderTexture.
  // Skip the whole second preparation, otherwise it would erase the house score.
  if(active&&startup.mode>=3){
@@ -190,6 +198,7 @@ static unsigned texturePixelHash(void* texture){
  unsigned hash=2166136261u;for(unsigned i=0;i<width*height;++i){hash^=data[i];hash*=16777619u;}return hash;
 }
 static void __fastcall dispatchHook(void* self,void*,void* function,void* params,void* result){
+    if(hallRendering)return;
     if(active){
         // Scripted textures are shared by both eyes: render each texture once per pair.
         // A texture first visible to the right eye still needs its original preparation.
@@ -275,9 +284,9 @@ static void __fastcall diagnosticWorldHook(void* renderer,void*,void* frame){
 static void __fastcall coordsHook(void* frame,void*,Vec& position,Rot& rotation){lastCameraRotation=rotation;computeCoords(frame,position,rotation);}
 static void __fastcall destroyHook(void* engine,void*){
     log("{\"event\":\"native_shutdown\",\"ticks\":%u,\"draws\":%u,\"extra_draws\":%u,\"completed\":%s}",ticks,draws,extraDraws,completed?"true":"false");
-    log("{\"event\":\"vr_shutdown\",\"frames\":%u,\"submitted_pairs\":%u,\"gpu_verified_eyes\":%u,\"hidden_meshes\":%u,\"elapsed_ms\":%llu}",vrFrames,submittedPairs,gpuVerifiedEyes,hiddenMeshes,firstVrPairTime?GetTickCount64()-firstVrPairTime:0);
+    log("{\"event\":\"vr_shutdown\",\"frames\":%u,\"hall_pairs\":%u,\"submitted_pairs\":%u,\"gpu_verified_eyes\":%u,\"hidden_meshes\":%u,\"elapsed_ms\":%llu}",vrFrames,hallTotalFrames,submittedPairs,gpuVerifiedEyes,hiddenMeshes,firstVrPairTime?GetTickCount64()-firstVrPairTime:0);
     log("{\"event\":\"input_shutdown\",\"transitions\":%u,\"wand_cursor_calls\":%u,\"wand_projectile_calls\":%u}",inputTransitions,wandCursorCalls,wandProjectileCalls);
-    vrProfile.print(logFile);closeUi();closeCinema();closeHud();vrMenu.close();menuBridge.close();runtime.close();bridge.close();
+    vrProfile.print(logFile);closeTutorial();closeUi();closeCinema();closeHud();vrMenu.close();menuBridge.close();runtime.close();bridge.close();
     originalDestroy(engine);
 }
 #include "vr_window.h"
@@ -296,9 +305,14 @@ static void closeHud(){vrHealth.close();healthBridge.close();healthCapture.close
 #include "vr_vendor_panel.h"
 #include "vr_binding_menu.h"
 #include "vr_status.h"
+#include "vr_hall.h"
 #include "vr_cinema.h"
+#include "vr_tutorial.h"
+#include "vr_tutorial_render.h"
 #include "vr_game_menu.h"
 #include "vr_wand.h"
+#include "vr_settings_test.h"
+#include "vr_tutorial_test.h"
 static void hook(const char* name,void* replacement,void** original){
     auto p=targets.at(name);need(MH_CreateHook(p,replacement,original)==MH_OK,"Create native hook");need(MH_QueueEnableHook(p)==MH_OK,"Queue native hook");
 }
@@ -314,11 +328,13 @@ extern "C" __declspec(dllexport) DWORD __stdcall HP2VR_Initialize(NativeStartup*
     try{
         need(args&&args->size==sizeof(NativeStartup)&&args->version==1,"Invalid native startup ABI");startup=*args;
         need(startup.mode>=1&&startup.mode<=6,"Unknown native mode");
-        std::wstring root=startup.root,profile=startup.profile;vrLoadLocale();
-        if(startup.mode>=3&&startup.mode<=5){vrSettings.load(root);vrBindings.load(root);vrPresentation.load(root);}
+        std::wstring root=startup.root,profile=startup.profile;vrLoadLocale(root);
+        if(startup.mode>=3&&startup.mode<=5){vrSettings.load(root);vrBindings.load(root);vrPresentation.load(root);vrModPreferences.load(root);
+         if(profileFlag(L"replay-vr-settings.flag")||profileFlag(L"replay-vr-tutorial.flag")||profileFlag(L"replay-preferences-startup.flag")){CreateDirectoryW((profile+L"\\config").c_str(),nullptr);vrBindings.load(profile);vrPresentation.load(profile);vrModPreferences.load(profile);}}
         need(root.size()>4&&profile.find(root+L"\\cache\\")==0,"Native profile outside project");
         std::wstring path=profile+L"\\hp2vr-native.jsonl";
         logFile=_wfopen(path.c_str(),L"wx");need(logFile!=nullptr,"Open native log");gameThread=GetCurrentThreadId();
+        log("{\"event\":\"mod_preferences_loaded\",\"english\":%s,\"language_choice\":%d,\"render_size\":%u}",vrEnglish?"true":"false",vrLanguageChoice,vrSettings.renderSize);
         if(startup.mode==5)AddVectoredExceptionHandler(1,replayException);
         for(const auto& t:kNativeTargets){
             auto module=GetModuleHandleW(t.module);need(module!=nullptr,"Missing original module");void* address=reinterpret_cast<BYTE*>(module)+t.rva;
@@ -355,6 +371,9 @@ extern "C" __declspec(dllexport) DWORD __stdcall HP2VR_Initialize(NativeStartup*
             hook("readinput",reinterpret_cast<void*>(readInputHook),reinterpret_cast<void**>(&originalReadInput));
             hook("internal",reinterpret_cast<void*>(internalHook),reinterpret_cast<void**>(&originalInternal));
             configureAudioBuffers();
+            hook("localize",reinterpret_cast<void*>(tutorialLocalizeHook),reinterpret_cast<void**>(&originalTutorialLocalize));
+            hook("soundload",reinterpret_cast<void*>(tutorialLoadHook),reinterpret_cast<void**>(&originalTutorialLoad));
+            hook("soundduration",reinterpret_cast<void*>(tutorialDurationHook),reinterpret_cast<void**>(&originalTutorialDuration));
             hook("audioplay",reinterpret_cast<void*>(audioPlayHook),reinterpret_cast<void**>(&originalAudioPlay));
             hook("audiostop",reinterpret_cast<void*>(audioStopHook),reinterpret_cast<void**>(&originalAudioStop));
             hook("audioupdate",reinterpret_cast<void*>(audioUpdateHook),reinterpret_cast<void**>(&originalAudioUpdate));
@@ -364,7 +383,7 @@ extern "C" __declspec(dllexport) DWORD __stdcall HP2VR_Initialize(NativeStartup*
             hook("lodmesh",reinterpret_cast<void*>(lodMeshHook),reinterpret_cast<void**>(&originalLodMesh));
         }
         need(MH_ApplyQueued()==MH_OK,"Enable verified native hooks");
-        log("{\"event\":\"native_initialized\",\"mode\":%lu,\"thread\":%lu,\"hook_count\":%u,\"vr_runtime\":%s}",startup.mode,gameThread,startup.mode>=3?19u:6u,startup.mode==3?"true":"false");return 0;
+        log("{\"event\":\"native_initialized\",\"mode\":%lu,\"thread\":%lu,\"hook_count\":%u,\"vr_runtime\":%s}",startup.mode,gameThread,startup.mode>=3?21u:6u,startup.mode==3?"true":"false");return 0;
     }catch(const std::exception& e){log("{\"event\":\"init_failed\",\"reason\":\"%s\"}",e.what());return 1;}
 }
 BOOL WINAPI DllMain(HINSTANCE h,DWORD reason,LPVOID){if(reason==DLL_PROCESS_ATTACH)DisableThreadLibraryCalls(h);return TRUE;}

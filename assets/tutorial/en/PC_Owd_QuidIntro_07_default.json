@@ -1,0 +1,10 @@
+{
+  "id": "PC_Owd_QuidIntro_07",
+  "variant": "default",
+  "text": "Hold the lower grip button on your right controller to fly faster. Use the left grip button to brake.",
+  "seconds": 5.44,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "f5cc31d3509554c42675d28b2f83ad44a1e1ddd72bf20c0016fd39d799b150cd"
+}

@@ -1,4 +1,4 @@
-HP2VR v1.0.2 - Diagnose / Diagnostics
+HP2VR v1.0.3 - Diagnose / Diagnostics
 
 DEUTSCH
 Das Diagnosewerkzeug ist fester Bestandteil der Mod. Es sammelt vorhandene

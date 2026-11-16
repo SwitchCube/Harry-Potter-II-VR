@@ -1,0 +1,10 @@
+{
+  "id": "PC_Ron_WhompTut1_70",
+  "variant": "default",
+  "text": "Move towards the ledge and press A on your right controller to jump.",
+  "seconds": 3.6,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "9ccaa6c24a0b4bba44f5518dfb6264e068a93a2426aa24551a201475400264bf"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "PC_Gil_Dueling_68",
+  "variant": "default",
+  "text": "Press Y on your left controller to select the next duelling spell.",
+  "seconds": 4.8,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "dcd7203d24f608c4e686c1a1df68a1840ffae6f401d6cccc4409703079884e76"
+}

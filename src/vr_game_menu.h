@@ -2,7 +2,7 @@
 static void dispatchUi(void* self,void* function,void* params,void* result){
  try{if(mechanicsDispatch(self,function,params,result))return;}catch(const std::exception& e){log("{\"event\":\"fatal\",\"stage\":\"mechanics_dispatch\",\"reason\":\"%s\"}",e.what());stopOwnProcess(140);}
  if(dispatchLocomotion(self,function,params,result))return;
- try{beginHud(self,function);beginMenu(self,function);}catch(const std::exception& e){log("{\"event\":\"fatal\",\"stage\":\"hud_begin\",\"reason\":\"%s\"}",e.what());stopOwnProcess(137);}
+ try{settingsNativeButton();beginHud(self,function);beginMenu(self,function);}catch(const std::exception& e){log("{\"event\":\"fatal\",\"stage\":\"hud_begin\",\"reason\":\"%s\"}",e.what());stopOwnProcess(137);}
  if(startup.mode<3||!menuVisible||self!=gameConsole||!currentViewport||objectName(function)!=L"PostRender"){
   originalDispatch(self,function,params,result);return;
  }
@@ -39,7 +39,7 @@ static void __fastcall unlockHook(void* renderer,void*,int blit){
     try{
      if(menuBridge.device&&(menuBridge.width!=d.dwWidth||menuBridge.height!=d.dwHeight))vrMenu.close();
      bridge.open(startup.mode==3?runtime.adapter:0,d.dwWidth,d.dwHeight);menuBridge.open(startup.mode==3?runtime.adapter:0,d.dwWidth,d.dwHeight,true,&bridge);
-     unsigned visible=menuBridge.uploadArgb(d,!(menuBridge.verifiedMask&1u),menuCapture.sourceAlpha);
+     unsigned visible=menuBridge.uploadArgb(d,!(menuBridge.verifiedMask&1u),menuCapture.sourceAlpha,paintSettingsEntry);
      if(!menuCaptured&&visible&&nativeCapturesEnabled()){auto cpu=d;cpu.lpSurface=menuBridge.pixels.data();cpu.lPitch=LONG(menuBridge.width*4);writeBmp(L"native-menu.bmp",cpu);menuCaptured=true;
       unsigned bottom=0;for(unsigned y=d.dwHeight*9/10;y<d.dwHeight;++y)for(unsigned x=0;x<d.dwWidth;++x)if(menuBridge.pixels[(y*d.dwWidth+x)*4+3])++bottom;
       log(R"({"event":"menu_alpha","visible_pixels":%u,"total_pixels":%u,"bottom_visible":%u,"alpha_target":true})",visible,d.dwWidth*d.dwHeight,bottom);
@@ -48,7 +48,7 @@ static void __fastcall unlockHook(void* renderer,void*,int blit){
     hr(surface->Unlock(nullptr),"Unlock original menu");menuBridge.flush();menuCapture.restore(device);hr(device->BeginScene(),"Resume original menu frame");
     if(++menuCapturedFrames==1)log(R"({"event":"menu_texture","width":%u,"height":%u,"gpu_verified":true,"alpha":true,"runtime_overlay":%s})",menuBridge.width,menuBridge.height,startup.mode==3?"true":"false");
    }
-   if(startup.mode==3&&menuBridge.textures[0]&&runtime.compositor->CanRenderScene())vrMenu.submit(runtime,menuBridge.textures[0],menuBridge.width,menuBridge.height,false,true);
+   if(startup.mode==3&&menuBridge.textures[0]&&runtime.compositor->CanRenderScene()){auto plane=hallScreenPose(2.4f);vrMenu.submit(runtime,menuBridge.textures[0],menuBridge.width,menuBridge.height,false,true,hallActive?&plane:nullptr);}
    else if(startup.mode==3)vrMenu.hide();
   }else vrMenu.hide();
   if(menuCapture.active){auto device=mem<IDirect3DDevice7*>(renderer,0x9a4);hr(device->EndScene(),"Finish hidden menu");menuCapture.restore(device);hr(device->BeginScene(),"Restore hidden menu target");}
@@ -57,6 +57,7 @@ static void __fastcall unlockHook(void* renderer,void*,int blit){
   if(show||(startup.mode==3&&(!runtime.compositor->CanRenderScene()||headBlocked)))vrHud.hide();
   if(hudCapture.active){auto device=mem<IDirect3DDevice7*>(renderer,0x9a4);hr(device->EndScene(),"Finish original HUD");if(!show)captureHud(device);hudCapture.restore(device);hr(device->BeginScene(),"Resume original target");}
   updateVendorOverlay();updateHealthOverlay();updateStatusOverlay();
+  if(hallActive)renderHall(mem<IDirect3DDevice7*>(renderer,0x9a4));
   LONGLONG uiFinished=VrProfile::now();fpu.restore();originalUnlock(renderer,blit);LONGLONG desktopFinished=VrProfile::now();if(startup.mode==3)runtime.presentHandoff();LONGLONG handoffFinished=VrProfile::now();fpu.restore();
   if(vrFrames>5){static double uiMs=0,desktopMs=0,handoffMs=0;static unsigned count=0;uiMs+=vrProfile.ms(uiFinished-uiStarted);desktopMs+=vrProfile.ms(desktopFinished-uiFinished);handoffMs+=vrProfile.ms(handoffFinished-desktopFinished);
    if(++count==300){log("{\"event\":\"present_profile\",\"frames\":300,\"ui_ms\":%.6g,\"desktop_ms\":%.6g,\"handoff_ms\":%.6g}",uiMs/count,desktopMs/count,handoffMs/count);count=0;uiMs=desktopMs=handoffMs=0;}}

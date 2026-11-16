@@ -1,0 +1,10 @@
+{
+  "id": "PC_Owd_QuidIntro_23",
+  "variant": "default",
+  "text": "A nearby Seeker can bump you too. Quickly press A on your right controller before they get you first.",
+  "seconds": 5.36,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "c267a37ffc5255fb05a3a6ef7ff51eb18b6069fcd82b0a5119bed3745fc1ffdd"
+}

@@ -13,6 +13,13 @@ struct VrInput {
   path="/actions/game/out/haptic";VRActionHandle_t h=0;check(r.input->GetActionHandle(&path[0],&h),"haptic");actions["haptic"]=h;
   for(auto side:{"haptic_left","haptic_right"}){path=std::string("/actions/game/out/")+side;check(r.input->GetActionHandle(&path[0],&h),side);actions[side]=h;}
  }
+ VRActionHandle_t mappedHandle(const char* action){
+  const char* names[]={"jump","cast","menu","recenter","confirm","potion","map","boost","quicksave","show_health"};
+  if(!std::strcmp(action,"move"))return actions.at(vrBindings.swapSticks?"turn":"move");
+  if(!std::strcmp(action,"turn"))return actions.at(vrBindings.swapSticks?"move":"turn");
+  for(int i=0;i<VrBindings::Count;++i)if(!std::strcmp(action,names[i]))return actions.at(names[vrBindings.source[i]]);
+  return actions.at(action);
+ }
  EVRInputError pulse(VrRuntime& r,float amplitude,float seconds){return r.initialized&&amplitude>0?r.input->TriggerHapticVibrationAction(actions.at("haptic"),0,seconds,90,amplitude,0):EVRInputError_VRInputError_None;}
  EVRInputError pulseSide(VrRuntime& r,bool leftSide,float amplitude,float seconds){return r.initialized&&amplitude>0?r.input->TriggerHapticVibrationAction(actions.at(leftSide?"haptic_left":"haptic_right"),0,seconds,70,amplitude,0):EVRInputError_VRInputError_None;}
  bool button(VrRuntime& r,const char* name){InputDigitalActionData_t d={};check(r.input->GetDigitalActionData(actions.at(name),&d,sizeof(d),0),name);return d.bActive&&d.bState;}

@@ -1,0 +1,10 @@
+{
+  "id": "PC_Flt_CharmSkurgTeach_09",
+  "variant": "default",
+  "text": "Flick the left stick in the direction of the arrow when the wand is directly over it. Then release the stick again.",
+  "seconds": 7.6,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "a7e5e7e0e6fa3258b424be4ba989e13a5e518e723f5b2f629c70401f261c5414"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "PC_Nar_QuidNar_01",
+  "variant": "default",
+  "text": "Use the left stick to steer your broom left, right, up and down. You can look around freely while flying.",
+  "seconds": 7.52,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "4147e74c2341317da07b35ce6384ba5816c7f84df61302bc4011f2a6cbd74d0a"
+}

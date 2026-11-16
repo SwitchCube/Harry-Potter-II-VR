@@ -1,0 +1,10 @@
+{
+  "id": "PC_Nar_WhompTut1_66",
+  "variant": "default",
+  "text": "Chocolate Frogs restore your energy, and they taste delicious! Hold the lower grip button on your left controller to see your inventory at your left hand. It shows your energy, beans and other collected items.",
+  "seconds": 14.16,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "41661d4a6b78607ab16163dfdf6116eee4d760b55a43e2b12db61824eed7c88e"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "PC_Owd_QuidIntro_06",
+  "variant": "default",
+  "text": "Mit dem linken Stick lenkst du deinen Besen nach links und rechts, nach oben und nach unten. Du kannst dich dabei frei umsehen.",
+  "seconds": 6.72,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "ada0648480189015208e72ed5ae5e01073f9f9470f9048c3771957c06a753174"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "PC_Gil_SpongeTeach_38",
+  "variant": "default",
+  "text": "Bewege den linken Stick kurz in die Richtung des Pfeils, sobald der Zauberstab genau darüber steht. Lass den Stick danach wieder los.",
+  "seconds": 7.6,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "9d0a788c419b9ff9d1c9288bc9a6fe4bf3d82c9db7e66953e8396981885879b5"
+}

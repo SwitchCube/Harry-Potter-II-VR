@@ -1,6 +1,15 @@
 [CmdletBinding()]
 param([switch]$RuntimeProbeOnly,[switch]$DirectBgrxUpload)
 . (Join-Path $PSScriptRoot 'Project.Common.ps1')
+# Rebuild the mod's own sound packages from the checked-in editable WAV inputs.
+$previousTutorialLanguage=$env:HP2VR_TUTORIAL_LANGUAGE
+try {
+    foreach($tutorialLanguage in @('de','en')) {
+        $env:HP2VR_TUTORIAL_LANGUAGE=$tutorialLanguage
+        & python -B (Resolve-ProjectPath 'scripts/tutorial_audio.py') --pack --verify | Write-Host
+        if($LASTEXITCODE -ne 0){throw 'Tutorial sound packaging failed'}
+    }
+} finally {$env:HP2VR_TUTORIAL_LANGUAGE=$previousTutorialLanguage}
 $cc=Resolve-ProjectPath 'tools\zig-x86_64-windows-0.15.2\zig.exe'
 $lock=Get-Content -LiteralPath (Resolve-ProjectPath 'config\native-vr-dependencies.lock.json') -Raw|ConvertFrom-Json
 foreach($row in $lock.files){if((Get-FileHash -LiteralPath (Resolve-ProjectPath $row.path)).Hash -ne $row.sha256){throw "Dependency changed: $($row.path)"}}
@@ -87,6 +96,7 @@ try{
         $code=$LASTEXITCODE
         Write-NewProjectText "logs/build-flat-launcher-$stamp.log" (($out|Out-String)+"`nExitCode=$code")|Out-Null
         if($code -ne 0){throw "Flat launcher compile failed: logs/build-flat-launcher-$stamp.log"}
+        $inputPaths+=@('src/vr_tutorial_test.h','src/vr_settings_test.h','src/vr_tutorial.h','src/vr_tutorial_render.h','src/vr_tutorial_catalogue.h','src/vr_tutorial_catalogue_en.h','assets/tutorial/HP2VRTutorial.uax','assets/tutorial/HP2VRTutorialEN.uax','scripts/tutorial_audio.py','src/vr_preferences.h','src/vr_script.h','src/vr_hall.h')
         $inputPaths+=@('src/vr_capabilities.h','tests/vr_capabilities_tests.cpp','src/vr_compat.h','src/vr_locale.h','src/vr_portable.h','src/flat_launcher.cpp','scripts/Start-Spiel.ps1','scripts/shared_saves.py','scripts/menu_sessions.py','scripts/stage_test_profile.py')
         $inputPaths+=@('scripts\prepare_runtime_image.py','src\hp2vr_native.cpp','src\vr_native_api.h','src\vr_bridge.h','src\vr_profile.h','src\vr_audio.h','src\vr_window.h','src\vr_game_render.h','src\vr_game_input.h','src/vr_locomotion.h','src/vr_sword.h','src/vr_polish.h','src/vr_polish_math.h','src/vr_presentation.h','src/vr_vendor_panel.h','src/vr_gameplay.h','src/vr_gameplay_math.h','src/vr_gameplay_test.h','src/vr_lesson_test.h','src\vr_controls.h','src\vr_wand_pose.h','src\vr_hud.h','src\vr_health_math.h','src\vr_menu.h','src\vr_game_menu.h','src\vr_wand.h','src\vr_input.h','src\vr_settings.h','src\vr_panel.h','src\vr_bindings.h','src\vr_binding_menu.h','src\vr_status.h','src\vr_cinema.h','config\vr\actions_left.json','config\vr\bindings_touch_left.json','config\vr\actions.json','config\vr\bindings_touch.json','src\native_targets.h','src\native_inject.h','src\vr_frontend.h','src\vr_process_tree.h','src\engine_observer.cpp','src\observed_target.h','src\pair_capture.h','src\pair_target.h')
     }

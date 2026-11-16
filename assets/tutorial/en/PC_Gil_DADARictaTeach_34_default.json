@@ -1,0 +1,10 @@
+{
+  "id": "PC_Gil_DADARictaTeach_34",
+  "variant": "default",
+  "text": "Flick the left stick in the direction of the arrow when the wand is directly over it. Then release the stick again.",
+  "seconds": 7.44,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "01c41785e428891682837a930199b4183035d9d87897d6dbb340dfa1f2cc9080"
+}

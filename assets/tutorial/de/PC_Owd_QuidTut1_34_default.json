@@ -1,0 +1,10 @@
+{
+  "id": "PC_Owd_QuidTut1_34",
+  "variant": "default",
+  "text": "Drücke jetzt A am rechten Controller, um den Schnatz zu fangen!",
+  "seconds": 3.2,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "f0e094f592b5ae05be6222e6a96a47c887d890864c85e5f0f38fa0576072e87a"
+}

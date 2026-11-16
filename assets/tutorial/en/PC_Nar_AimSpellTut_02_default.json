@@ -1,0 +1,10 @@
+{
+  "id": "PC_Nar_AimSpellTut_02",
+  "variant": "default",
+  "text": "Let us practise aiming. Hold the right trigger and point your wand at a target with your right controller.",
+  "seconds": 7.120041666666666,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "0f63e17967dbb430d9d17d5f538fe510ed411a220b563224aae386dc3bf3ed6c"
+}

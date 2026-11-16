@@ -1,0 +1,10 @@
+{
+  "id": "PC_Owd_QuidTut1_34",
+  "variant": "default",
+  "text": "Press A on your right controller now to catch the Snitch!",
+  "seconds": 3.2,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "a98ff9aecea47165482edb258c9ca92075e0d4949023b7d0ab46339854dd666d"
+}

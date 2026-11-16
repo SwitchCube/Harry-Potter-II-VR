@@ -26,13 +26,23 @@ static AudioPlay originalAudioPlay=nullptr;static AudioStop originalAudioStop=nu
 struct DialogueVoice {std::wstring name;ULONGLONG started;float duration;bool observed=false,underrun=false;};
 static std::map<void*,DialogueVoice> dialogueVoices;
 static bool dialogueSound(void* sound){
- for(void* o=sound;o;o=mem<void*>(o,0x18))if(objectName(o)==L"AllDialog")return true;
+ for(void* o=sound;o;o=mem<void*>(o,0x18))if(objectName(o)==L"AllDialog"||objectName(o)==L"HP2VRTutorial"||objectName(o)==L"HP2VRTutorialEN")return true;
  return false;
 }
 static int __fastcall audioPlayHook(void* self,void*,void* actor,int id,void* sound,Vec position,float volume,float radius,float pitch,int flags,float fadeIn,float fadeOut){
- FpuState fpu;bool dialogue=sound&&dialogueSound(sound);float duration=0;
+ FpuState fpu;void* prior=sound;sound=tutorialResolveSound(sound);if(prior!=sound)log("{\"event\":\"hp2_tutorial_cached_playback\",\"original\":\"%ls\",\"replacement\":\"%ls\"}",objectName(prior).c_str(),objectName(sound).c_str());bool dialogue=sound&&dialogueSound(sound);float duration=0;
  if(dialogue){using Duration=float(__thiscall*)(void*);fpu.restore();duration=reinterpret_cast<Duration>(targets.at("soundduration"))(sound);}
+ // Reviewed HP2 ALAudio PlaySound +419d ORs caller flags into Sound+0xb8.
+ // Bit 4 selects the XA/OGG streaming decoder, which cannot decode RIFF PCM.
+ // CutCommand_Say requests it even for a replacement. Only our PCM assets use
+ // the original non-streaming WAV branch (+3b4e); preserve all other flags.
+ if(tutorialIsPcm(sound)&&flags&4){log("{\"event\":\"hp2_tutorial_pcm_playback\",\"caller_flags\":%d,\"effective_flags\":%d}",flags,flags&~4);flags&=~4;}
  fpu.restore();int result=originalAudioPlay(self,actor,id,sound,position,volume,radius,pitch,flags,fadeIn,fadeOut);
+ if(result)tutorialPlayed(sound);
+ if(result&&tutorialIsPcm(sound)){int count=mem<int>(self,0x74);void* sources=mem<void*>(self,0x70);unsigned matches=0,source=0;
+  if(sources&&count>0&&count<1024)for(int i=0;i<count;++i)if(mem<void*>(sources,i*92)==sound){++matches;source=mem<unsigned>(sources,i*92+4);}
+  log("{\"event\":\"hp2_tutorial_audio_slot\",\"matches\":%u,\"source\":%u,\"viewport_present\":%s,\"volume\":%.6g,\"radius\":%.6g,\"pitch\":%.6g,\"flags\":%d}",matches,source,mem<void*>(self,0x2c)?"true":"false",volume,radius,pitch,flags);
+ }
  if(dialogue&&result){DialogueVoice v;v.name=objectName(sound);v.started=GetTickCount64();v.duration=duration;dialogueVoices[sound]=v;log("{\"event\":\"dialogue_start\",\"sound\":\"%ls\",\"time_ms\":%llu,\"duration\":%.6g,\"pitch\":%.6g,\"accepted\":%s}",objectName(sound).c_str(),GetTickCount64(),duration,pitch,result?"true":"false");}
  fpu.restore();return result;
 }

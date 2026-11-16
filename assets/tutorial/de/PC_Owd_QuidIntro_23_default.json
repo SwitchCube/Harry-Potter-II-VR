@@ -1,0 +1,10 @@
+{
+  "id": "PC_Owd_QuidIntro_23",
+  "variant": "default",
+  "text": "Ein naher Sucher kann dich ebenfalls schubsen. Drücke schnell A am rechten Controller, bevor er dir zuvorkommt.",
+  "seconds": 5.68,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "46150d1ab8061c371700bf832672497c23653d1081b6309d6463d864f2f494aa"
+}

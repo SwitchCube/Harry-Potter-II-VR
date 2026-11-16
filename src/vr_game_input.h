@@ -150,6 +150,7 @@ static void __fastcall readInputHook(void* self,void*,float delta,void* output){
    if(controlsFrames==850||controlsFrames==900)log("{\"event\":\"jump_replay\",\"step\":%u,\"height\":%.6g}",controlsFrames,mem<Vec>(actor,0x11c).z);
    if(controlsFrames==180||controlsFrames==211)log("{\"event\":\"input_replay_position\",\"step\":%u,\"position\":[%.5f,%.5f,%.5f]}",controlsFrames,mem<Vec>(actor,0x11c).x,mem<Vec>(actor,0x11c).y,mem<Vec>(actor,0x11c).z);
   }
+  if(startup.mode==5&&(profileFlag(L"replay-vr-settings.flag")||profileFlag(L"replay-vr-tutorial.flag"))){forward=strafe=0;jump=cast=menu=confirm=potion=walk=map=boost=false;}
   if(startup.mode==5&&GetFileAttributesW((std::wstring(startup.profile)+L"\\replay-climb.flag").c_str())!=INVALID_FILE_ATTRIBUTES){
    forward=strafe=0;jump=cast=menu=potion=walk=map=boost=false;
    confirm=cinemaActive&&(controlsFrames%120==0);
@@ -243,7 +244,8 @@ static void aimCamera(RestoreFields& scope,bool fromWand){
  ++camAimScopes;
 }
 static void __fastcall internalHook(void* self,void*,void* frame,void* result){
- if(frame){try{if(scaledHud(self,frame,result)||healthDraw(self,frame,result)||hideStatusItem(self,frame))return;beginHud(self,mem<void*>(frame,4));beginMenu(self,mem<void*>(frame,4));}catch(const std::exception& e){log("{\"event\":\"fatal\",\"stage\":\"hud_internal\",\"reason\":\"%s\"}",e.what());stopOwnProcess(137);}}
+ if(hallRendering)return;
+ if(frame){try{if(settingsInternal(self,frame,result))return;if(scaledHud(self,frame,result)||healthDraw(self,frame,result)||hideStatusItem(self,frame))return;beginHud(self,mem<void*>(frame,4));beginMenu(self,mem<void*>(frame,4));}catch(const std::exception& e){log("{\"event\":\"fatal\",\"stage\":\"hud_internal\",\"reason\":\"%s\"}",e.what());stopOwnProcess(137);}}
  // A trigger release during tracking/focus loss must not cast with the old camera.
  if(startup.mode==3&&self==vrWeapon&&!wandValid&&frame){
   void* node=mem<void*>(frame,4);const wchar_t* name=mem<wchar_t*>(node,0x20)+6;
@@ -315,7 +317,7 @@ static void* __fastcall loadMapHook(void* self,void*,const void* url,void* pendi
  vrPlayer=vrWeapon=vrFrame=nullptr;trackingOrigin.ready=false;vrRendering=false;
  saveHeld=saveRequested=false;
  if(startup.mode==3)runtime.compositor->ClearLastSubmittedFrame();
- closeUi();closeCinema();closeHud();vrMenu.close();menuBridge.close();bridge.verifiedMask=0;runtime.renderReady=false;lessonActive=false;lessonStick=hpvr::LessonStick{};reflectedCache.clear();headBlocked=false;vrProfile.active=false;vrProfile.previousEnd=0;
+ closeTutorial();closeUi();closeCinema();closeHud();vrMenu.close();menuBridge.close();bridge.verifiedMask=0;runtime.renderReady=false;lessonActive=false;lessonStick=hpvr::LessonStick{};reflectedCache.clear();headBlocked=false;vrProfile.active=false;vrProfile.previousEnd=0;
  ++levelGeneration;log("{\"event\":\"level_transition_begin\",\"generation\":%u}",levelGeneration);
  if(startup.mode==3)runtime.compositor->ClearLastSubmittedFrame();
  fpu.restore();void* result=originalLoadMap(self,url,pending,travel,error);--levelLoadDepth;
@@ -353,7 +355,7 @@ static void replaySaveBook(){
 static void replayTravel(){
  if(!commandOutput||active||levelLoadDepth||!currentViewport)return;
  static bool frontendResolution=false;
- if(startup.mode==3&&!frontendResolution&&profileFlag(L"frontend.flag")){frontendResolution=true;std::wstring command=L"setres "+std::to_wstring(vrSettings.renderSize)+L"x"+std::to_wstring(vrSettings.renderSize)+L"w";originalCommand(command.c_str(),true);return;}
+ if(!frontendResolution&&((startup.mode==3&&profileFlag(L"frontend.flag"))||(startup.mode==5&&profileFlag(L"replay-preferences-startup.flag")))){frontendResolution=true;std::wstring command=L"setres "+std::to_wstring(vrSettings.renderSize)+L"x"+std::to_wstring(vrSettings.renderSize)+L"w";originalCommand(command.c_str(),true);return;}
  if(startup.mode==4&&vrPlayer&&vrFrames>400&&profileFlag(L"replay-look-around.flag")){
   static bool inspected=false;if(!inspected){inspected=true;auto array=GetProcAddress(GetModuleHandleW(L"Core.dll"),"?GObjObjects@UObject@@0V?$TArray@PAVUObject@@@@A");need(array!=nullptr,"Missing texture fixture array");
    int count=mem<int>(reinterpret_cast<void*>(array),4);need(count>0&&count<1000000,"Texture object count invalid");using Indexed=void*(__cdecl*)(int);

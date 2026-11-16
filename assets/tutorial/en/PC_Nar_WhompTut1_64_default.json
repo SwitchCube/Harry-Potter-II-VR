@@ -1,0 +1,10 @@
+{
+  "id": "PC_Nar_WhompTut1_64",
+  "variant": "default",
+  "text": "Hold the right trigger and aim with your wand. Release the trigger to cast your spell.",
+  "seconds": 5.28,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "0363c8104bda246e42804f215708eaced260e35c5703915338295d483a6abcc1"
+}

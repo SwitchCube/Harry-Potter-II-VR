@@ -1,0 +1,253 @@
+{
+  "schema": 1,
+  "language": "de",
+  "voice_model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "description": "Local synthetic VR instructions, not new recordings by the original actors.",
+  "labels": {
+    "default": {}
+  },
+  "lines": [
+    {
+      "id": "PC_Flt_CharmSkurgTeach_09",
+      "actions": [
+        "move"
+      ],
+      "text": "Bewege den linken Stick kurz in die Richtung des Pfeils, sobald der Zauberstab genau darüber steht. Lass den Stick danach wieder los.",
+      "group": "CharmSkurgTeach"
+    },
+    {
+      "id": "PC_Flt_CharmSkurgTeach_29",
+      "actions": [
+        "move"
+      ],
+      "text": "Bewege den linken Stick kurz in die Richtung des Pfeils, sobald der Zauberstab genau darüber steht. Lass den Stick danach wieder los.",
+      "group": "CharmSkurgTeach"
+    },
+    {
+      "id": "PC_Flt_CharmSkurgTeach_30",
+      "actions": [
+        "move"
+      ],
+      "text": "Bewege den linken Stick kurz in die Richtung des Pfeils, sobald der Zauberstab genau darüber steht. Lass den Stick danach wieder los.",
+      "group": "CharmSkurgTeach"
+    },
+    {
+      "id": "PC_Gil_DADARictaTeach_19",
+      "actions": [
+        "move"
+      ],
+      "text": "Bewege den linken Stick kurz in die Richtung des Pfeils, sobald der Zauberstab genau darüber steht. Lass den Stick danach wieder los.",
+      "group": "DADARictaTeach"
+    },
+    {
+      "id": "PC_Gil_DADARictaTeach_33",
+      "actions": [
+        "move"
+      ],
+      "text": "Bewege den linken Stick kurz in die Richtung des Pfeils, sobald der Zauberstab genau darüber steht. Lass den Stick danach wieder los.",
+      "group": "DADARictaTeach"
+    },
+    {
+      "id": "PC_Gil_DADARictaTeach_34",
+      "actions": [
+        "move"
+      ],
+      "text": "Bewege den linken Stick kurz in die Richtung des Pfeils, sobald der Zauberstab genau darüber steht. Lass den Stick danach wieder los.",
+      "group": "DADARictaTeach"
+    },
+    {
+      "id": "PC_Gil_SpongeTeach_11",
+      "actions": [
+        "move"
+      ],
+      "text": "Bewege den linken Stick kurz in die Richtung des Pfeils, sobald der Zauberstab genau darüber steht. Lass den Stick danach wieder los.",
+      "group": "SpongeTeach"
+    },
+    {
+      "id": "PC_Gil_SpongeTeach_38",
+      "actions": [
+        "move"
+      ],
+      "text": "Bewege den linken Stick kurz in die Richtung des Pfeils, sobald der Zauberstab genau darüber steht. Lass den Stick danach wieder los.",
+      "group": "SpongeTeach"
+    },
+    {
+      "id": "PC_Gil_SpongeTeach_40",
+      "actions": [
+        "move"
+      ],
+      "text": "Bewege den linken Stick kurz in die Richtung des Pfeils, sobald der Zauberstab genau darüber steht. Lass den Stick danach wieder los.",
+      "group": "SpongeTeach"
+    },
+    {
+      "id": "PC_Spr_HerbDiffTeach_11",
+      "actions": [
+        "move"
+      ],
+      "text": "Bewege den linken Stick kurz in die Richtung des Pfeils, sobald der Zauberstab genau darüber steht. Lass den Stick danach wieder los.",
+      "group": "HerbDiffTeach"
+    },
+    {
+      "id": "PC_Gil_Dueling_68",
+      "actions": [
+        "potion"
+      ],
+      "text": "Mit der Y-Taste am linken Controller wechselst du im Duell zum nächsten Zauberspruch.",
+      "group": ""
+    },
+    {
+      "id": "PC_Gil_Dueling_69",
+      "actions": [
+        "cast"
+      ],
+      "text": "Ziele mit deinem rechten Controller auf den Gegner. Halte den rechten Trigger, um den Zauber aufzuladen. Lass ihn los, um zu zaubern.",
+      "group": ""
+    },
+    {
+      "id": "PC_Nar_AimSpellTut_02",
+      "actions": [
+        "cast"
+      ],
+      "text": "Lass uns das Zielen üben. Halte den rechten Trigger gedrückt und richte deinen Zauberstab mit dem rechten Controller auf ein Ziel.",
+      "group": ""
+    },
+    {
+      "id": "PC_Nar_AimSpellTut_03",
+      "actions": [
+        "cast"
+      ],
+      "text": "Lass den rechten Trigger los, sobald das Flipendo-Zaubersymbol erscheint!",
+      "group": ""
+    },
+    {
+      "id": "PC_Nar_QuidNar_01",
+      "actions": [
+        "move"
+      ],
+      "text": "Mit dem linken Stick lenkst du deinen Besen nach links und rechts, nach oben und nach unten. Du kannst dich dabei frei umsehen.",
+      "group": ""
+    },
+    {
+      "id": "PC_Nar_QuidNar_03",
+      "actions": [
+        "jump"
+      ],
+      "text": "Fliege dicht an den Schnatz heran und drücke dann A am rechten Controller, um ihn zu fangen.",
+      "group": ""
+    },
+    {
+      "id": "PC_Nar_WhompTut1_64",
+      "actions": [
+        "cast"
+      ],
+      "text": "Halte den rechten Trigger gedrückt und ziele mit deinem Zauberstab. Lass den Trigger los, um zu zaubern.",
+      "group": ""
+    },
+    {
+      "id": "PC_Nar_WhompTut1_66",
+      "actions": [
+        "show_health"
+      ],
+      "text": "Schokofrösche geben dir neue Kraft. Außerdem schmecken sie köstlich! Halte die untere Grifftaste am linken Controller gedrückt. Dann erscheint dein Inventar an deiner linken Hand. Dort siehst du deine Energie, Bohnen und andere gesammelte Dinge.",
+      "group": ""
+    },
+    {
+      "id": "PC_Nar_WhompTut1_78",
+      "actions": [
+        "move",
+        "turn"
+      ],
+      "text": "Mit dem linken Stick bewegst du Harry. Mit dem rechten Stick kannst du dich in Schritten drehen.",
+      "group": ""
+    },
+    {
+      "id": "PC_Nar_WhompTut1_80",
+      "actions": [
+        "cast"
+      ],
+      "text": "Ziele mit dem rechten Controller auf einen Gegenstand. Lass den rechten Trigger los, sobald das Zaubersymbol erscheint.",
+      "group": ""
+    },
+    {
+      "id": "PC_Nar_WhompTut1_81",
+      "actions": [
+        "menu"
+      ],
+      "text": "Drücke B am rechten Controller, um das Spielmenü zu öffnen. Im Folio Magi kannst du deine bisher gesammelten Bildkarten ansehen.",
+      "group": ""
+    },
+    {
+      "id": "PC_Nar_WhompTut1_82",
+      "actions": [
+        "menu"
+      ],
+      "text": "Mit B am rechten Controller öffnest du auch das Menü mit deinen derzeitigen Spielzielen.",
+      "group": ""
+    },
+    {
+      "id": "PC_Owd_QuidIntro_06",
+      "actions": [
+        "move"
+      ],
+      "text": "Mit dem linken Stick lenkst du deinen Besen nach links und rechts, nach oben und nach unten. Du kannst dich dabei frei umsehen.",
+      "group": ""
+    },
+    {
+      "id": "PC_Owd_QuidIntro_07",
+      "actions": [
+        "boost",
+        "show_health"
+      ],
+      "text": "Halte die untere Grifftaste am rechten Controller, um schneller zu fliegen. Mit der linken Grifftaste kannst du bremsen.",
+      "group": ""
+    },
+    {
+      "id": "PC_Owd_QuidIntro_10",
+      "actions": [
+        "jump"
+      ],
+      "text": "Drücke A am rechten Controller, um nach dem Schnatz zu greifen. Wenn du nahe genug dran bist, schnappst du ihn.",
+      "group": ""
+    },
+    {
+      "id": "PC_Owd_QuidIntro_21",
+      "actions": [
+        "jump"
+      ],
+      "text": "Bist du nah an einem anderen Sucher dran, drücke A am rechten Controller, um ihn aus dem Weg zu schubsen.",
+      "group": ""
+    },
+    {
+      "id": "PC_Owd_QuidIntro_23",
+      "actions": [
+        "jump"
+      ],
+      "text": "Ein naher Sucher kann dich ebenfalls schubsen. Drücke schnell A am rechten Controller, bevor er dir zuvorkommt.",
+      "group": ""
+    },
+    {
+      "id": "PC_Owd_QuidTut1_34",
+      "actions": [
+        "jump"
+      ],
+      "text": "Drücke jetzt A am rechten Controller, um den Schnatz zu fangen!",
+      "group": ""
+    },
+    {
+      "id": "PC_Ron_WhompTut1_70",
+      "actions": [
+        "jump"
+      ],
+      "text": "Laufe auf den Vorsprung zu und drücke A am rechten Controller, um zu springen.",
+      "group": ""
+    },
+    {
+      "id": "PC_Snp_PotionTeach_06",
+      "actions": [
+        "potion"
+      ],
+      "text": "Der Mega-Power-Trank ist fertig. Drücke Y am linken Controller, um davon zu trinken. Setz dich wieder hin, Potter.",
+      "group": ""
+    }
+  ]
+}

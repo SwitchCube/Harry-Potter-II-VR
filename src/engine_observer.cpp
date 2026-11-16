@@ -421,7 +421,7 @@ int wmain(int argc, wchar_t** argv) {
         std::wstring exe = full_path(argv[1]);
         gSystem = exe.substr(0, exe.find_last_of(L"\\/"));
         std::wstring gameRoot = gSystem.substr(0, gSystem.find_last_of(L"\\/"));
-        std::wstring root = gDataRoot = vrDataRoot(gameRoot);vrLoadLocale();
+        std::wstring root = gDataRoot = vrDataRoot(gameRoot);vrLoadLocale(root);
         wchar_t ownPath[32768];
         DWORD ownLength = GetModuleFileNameW(nullptr,ownPath,32768);
         require(ownLength && ownLength < 32768,"Observer executable path");
@@ -477,6 +477,13 @@ int wmain(int argc, wchar_t** argv) {
         while (!exited) {
             ULONGLONG elapsed = GetTickCount64()-started;
             #ifdef HP2VR_NATIVE_LAUNCHER
+            // A detached game can finish between polls. Reap its real exit
+            // before evaluating the bounded diagnostic's shutdown deadline.
+            if(gNativeDetached&&!frontendMode&&WaitForSingleObject(gProcess,0)==WAIT_OBJECT_0){
+                require(GetExitCodeProcess(gProcess,&exitCode)!=0,"Get completed native game exit code");
+                if(closeRequested)std::printf("{\"event\":\"close_completed\",\"elapsed_ms\":%llu,\"exit_code\":%lu}\n",GetTickCount64()-closeAt,exitCode);
+                exited=true;break;
+            }
             if(frontendMode&&allNativeProcessesDone(exitCode)){exited=true;break;}
             frontendPump();
             require(frontendMode||!manualExit||gNativeDetached||elapsed<60000,"Native play initialization exceeded 60 seconds");
@@ -486,8 +493,14 @@ int wmain(int argc, wchar_t** argv) {
                 EnumWindows(close_window, 0);
                 std::puts("{\"event\":\"close_requested\"}");
             }
-            if (closeRequested && !forced && GetTickCount64()-closeAt > 7000) {
-                require(TerminateProcess(gProcess, 124) != 0, "Terminate own bounded test process");
+            // The original engine may finish cleanup before Windows finishes
+            // exiting the process. Allow that teardown in timed diagnostics;
+            // normal manual play still has no automatic close/deadline.
+            if (closeRequested && !forced && GetTickCount64()-closeAt > 30000) {
+                if(!TerminateProcess(gProcess,124)){
+                    require(WaitForSingleObject(gProcess,100)==WAIT_OBJECT_0&&GetExitCodeProcess(gProcess,&exitCode),"Terminate own bounded test process");
+                    exited=true;break;
+                }
                 forced = true;
             }
 #ifdef HP2VR_NATIVE_LAUNCHER

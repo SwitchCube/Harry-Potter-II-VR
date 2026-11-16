@@ -1,0 +1,10 @@
+{
+  "id": "PC_Nar_WhompTut1_78",
+  "variant": "default",
+  "text": "Move Harry with the left stick. Use the right stick to turn in steps.",
+  "seconds": 4.24,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "0b89ed15f3c856ad0e92448d51322d5a46d87ed7d825a506317bca162fe63eb6"
+}

@@ -46,7 +46,7 @@ def check(run_path):
   matched=[e for e in samples if e['mask'] and e['mask']==e['expected'] and not e['cinema']]
   if not matched or any(e['body_distance']>.1 for e in matched):raise ValueError('Interactive lesson moved the player body')
   presentations=[e for e in native if e['event']=='lesson_presentation']
-  if not any(e['interactive_world'] for e in presentations) or not any(e['event']=='cinema_mode' and e['active'] for e in native):raise ValueError('Missing explanation-to-world transition')
+  if not any(e['interactive_world'] for e in presentations) or not any(e['event'] in ('cinema_mode','world_cutscene') and e['active'] for e in native):raise ValueError('Missing configured explanation-to-interactive-world transition')
   only(native,'lesson_world_capture')
   for hand in (0,1):
    if {e['mask'] for e in matched if e['hand']==hand}!={1,2,4,8}:raise ValueError('Incomplete original arrow recognition')
@@ -67,8 +67,10 @@ def check(run_path):
   elif not fallback or any(e['hr']==0 for e in attempts):raise ValueError('Borrowed HUD fallback not exercised')
   out['hud_fallback']=dict(path=run['hud_fallback'],rejections=len(rejected),borrowed_surfaces=len(fallback))
  if init['mode']>=3:
-  vr=only(native,'vr_shutdown');frames=[e for e in native if e['event']=='vr_frame']
-  if not frames or vr['frames']!=shutdown['extra_draws'] or (vr['gpu_verified_eyes']<2 or vr['gpu_verified_eyes']%2):raise ValueError('GPU/paired-frame evidence incomplete')
+  vr=only(native,'vr_shutdown');frames=[e for e in native if e['event'] in ('vr_frame','hp2_hall_pair')]
+  hall_pairs=vr.get('hall_pairs',0)
+  if hall_pairs and not any(e['event']=='hp2_hall_stereo' and e['source_state_unchanged'] and not e['extra_ticks'] for e in native):raise ValueError('Missing independent entrance render evidence')
+  if not frames or vr['frames']!=shutdown['extra_draws']+hall_pairs or (vr['gpu_verified_eyes']<2 or vr['gpu_verified_eyes']%2):raise ValueError('GPU/paired-frame evidence incomplete')
   for e in frames:
    if abs(e['focal_a']-e['focal_b'])>.001 or abs(e['focal_a']-e.get('width',images['width'])*.5/math.tan(math.radians(e['fov'])*.5))>.05:raise ValueError('Incorrect actual eye focal lengths')
    if e['extra_ticks'] or not e['pose_unchanged'] or not all(math.isfinite(n) for n in e['left']+e['right']):raise ValueError('Invalid frame')
@@ -92,7 +94,7 @@ def check(run_path):
   profiles=[e for e in native if e['event']=='profile_summary']
   if profiles:
    summary=only(native,'profile_summary');stages=[e for e in native if e['event']=='profile_stage']
-   if summary['samples']+summary['excluded_capture_warmup']!=vr['frames']:raise ValueError('Profiling sample count differs from completed pairs')
+   if summary['samples']+summary['excluded_capture_warmup']!=vr['frames']-hall_pairs:raise ValueError('Profiling sample count differs from completed pairs')
    if len(stages)!=10 or len({e['stage'] for e in stages})!=10:raise ValueError('Profiling stages incomplete')
    values=[summary[k] for k in ('pair_mean_ms','outside_pair_mean_ms','steady_pair_rate_hz')]+[e[k] for e in stages for k in ('mean_ms','max_ms')]
    if any(not math.isfinite(n) or n<0 for n in values):raise ValueError('Invalid profiling duration')
@@ -131,7 +133,9 @@ def check(run_path):
    hud=only(native,'hud_texture')
    width,height,pixels=read_bitmap(inside(profile/'native-hud.bmp').read_bytes())
    if not hud['gpu_verified'] or (width,height)!=(hud['width'],hud['height']) or not 0<=hud['visible_pixels']<width*height:raise ValueError('HUD GPU/content/transparency evidence incomplete')
-   if hud['visible_pixels'] and (len(set(pixels))<16 or all(p==0 for p in pixels)):raise ValueError('Empty HUD capture')
+   # Original subtitle-only frames legitimately have just black/blue/white channels.
+   colored=sum(any(pixels[i:i+3]) for i in range(0,len(pixels),3))
+   if hud['visible_pixels'] and not 0<colored<=hud['visible_pixels']:raise ValueError('HUD content does not match its transparent-pixel coverage')
    out['hud_texture']=hud
   if run.get('book_replay'):
    books=[e for e in native if e['event']=='save_book_replay']
@@ -212,8 +216,21 @@ def check(run_path):
      out['block_standing_jump']=standing
     out['block']=block
    out['climb']=dict(start=start,mounts=mounts,completion=done,facing=facing,baseline=bool(run.get('stock_facing_replay')),jump_pressed=bool(run.get('climb_jump_replay') and not run.get('climb_no_jump_replay')),no_jump_baseline=bool(run.get('climb_no_jump_replay')))
-  out['vr']=vr;out['motion_images']=compare_bitmaps(inside(profile/'native-a.bmp').read_bytes(),inside(profile/'native-motion-a.bmp').read_bytes())
-  if init['mode'] in (4,5) and (out['motion_images']['identical'] or images['identical']):raise ValueError('No stereo/motion image difference')
+  out['vr']=vr
+  motion_path=inside(profile/'native-motion-a.bmp')
+  if motion_path.exists():
+   out['motion_images']=compare_bitmaps(inside(profile/'native-a.bmp').read_bytes(),motion_path.read_bytes())
+   if init['mode'] in (4,5) and out['motion_images']['identical']:raise ValueError('No motion image difference')
+  elif hall_pairs and run.get('mechanics_replay')=='cinema':
+   # Frame 120 belongs to the independent entrance, so vrWorld never captures
+   # its usual motion BMP. Check both entrance images and its tracked samples.
+   pair=compare_bitmaps(inside(profile/'hall-eye-a.bmp').read_bytes(),inside(profile/'hall-eye-b.bmp').read_bytes())
+   samples=[e for e in frames if e['event']=='hp2_hall_pair']
+   if pair['identical'] or len(samples)<2 or max(math.dist(e['left'],samples[0]['left']) for e in samples)<.01:raise ValueError('Missing entrance stereo or tracked-pose change')
+   out['entrance_images']=pair;out['entrance_pose_samples']=len(samples)
+   out['motion_image_note']='Frame 120 rendered the entrance; original-world motion BMP not captured.'
+  else:raise ValueError('Missing motion image')
+  if init['mode'] in (4,5) and images['identical']:raise ValueError('No original-world stereo image difference')
   if run.get('mechanics_replay'):
    from check_mechanics_trace import check_mechanics
    out['mechanics']=check_mechanics(run,native)

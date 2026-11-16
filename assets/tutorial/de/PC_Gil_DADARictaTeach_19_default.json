@@ -1,0 +1,10 @@
+{
+  "id": "PC_Gil_DADARictaTeach_19",
+  "variant": "default",
+  "text": "Bewege den linken Stick kurz in die Richtung des Pfeils, sobald der Zauberstab genau darüber steht. Lass den Stick danach wieder los.",
+  "seconds": 8.16,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "d7f62b2660f9b8bdcfebc4c0d664860abd2f6160d54676786066c3421ae1a0f1"
+}

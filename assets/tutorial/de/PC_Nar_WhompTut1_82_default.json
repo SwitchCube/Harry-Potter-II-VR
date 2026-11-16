@@ -1,0 +1,10 @@
+{
+  "id": "PC_Nar_WhompTut1_82",
+  "variant": "default",
+  "text": "Mit B am rechten Controller öffnest du auch das Menü mit deinen derzeitigen Spielzielen.",
+  "seconds": 5.92,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "363a458c24e8e39834f7ea78649b5484fe8db01729e2a40b65fa8f02fe9538ee"
+}

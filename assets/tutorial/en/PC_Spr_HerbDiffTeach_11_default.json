@@ -1,0 +1,10 @@
+{
+  "id": "PC_Spr_HerbDiffTeach_11",
+  "variant": "default",
+  "text": "Flick the left stick in the direction of the arrow when the wand is directly over it. Then release the stick again.",
+  "seconds": 7.76,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "ee013139ddac5de8bd47eb87a182cf9869537252a7241366761e3c3418022e65"
+}

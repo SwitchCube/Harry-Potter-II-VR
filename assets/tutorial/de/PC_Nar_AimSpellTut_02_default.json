@@ -1,0 +1,10 @@
+{
+  "id": "PC_Nar_AimSpellTut_02",
+  "variant": "default",
+  "text": "Lass uns das Zielen üben. Halte den rechten Trigger gedrückt und richte deinen Zauberstab mit dem rechten Controller auf ein Ziel.",
+  "seconds": 8.48,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "7afbaa73aaec6a5c441d72ea5c6019f55d3cb4babf38d69b4daa7a1c322bcd5f"
+}

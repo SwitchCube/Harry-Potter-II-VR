@@ -1,18 +1,22 @@
 # Harry Potter II VR
 
-**Source code / Quellcode:** [C++](src/) · [Launcher](release/portable_launcher.py) · [Build instructions / Bauanleitung](docs/BUILDING.md)
+**Source code / Quellcode:** [C++](src/) Â· [Launcher](release/portable_launcher.py) Â· [Build instructions / Bauanleitung](docs/BUILDING.md)
 
 **Ready-to-use mod / Fertige Mod:** [Download from Releases](https://github.com/SwitchCube/Harry-Potter-II-VR/releases/latest)
+
+> AI was used for the new tutorial speech. / Für die neuen Sprachhinweise kam KI zum Einsatz.
 
 ## English
 
 An unofficial VR mod for the **2002 Windows PC version of Harry Potter and the Chamber of Secrets**. Explore Hogwarts in first person, aim with your controller, and switch between unmodified Flat gameplay and VR. Both modes share the same saved games.
 
+**New in 1.0.3:** Visible VR settings in the pause menu, remappable controllers, cinema and language options, plus DE/EN tutorial speech and controller highlights.
+
 **Requirements:** Your own working game installation, Windows 10/11 (x64), SteamVR, and a compatible headset with two controllers. The supported engine build is `HPCos_021009_1205-1`; the launcher checks compatibility. New mod menus support English and German.
 
 **Install**
 
-1. Download `HP2VR-1.0.2.zip` from [Releases](https://github.com/SwitchCube/Harry-Potter-II-VR/releases/latest).
+1. Download `HP2VR-1.0.3.zip` from [Releases](https://github.com/SwitchCube/Harry-Potter-II-VR/releases/latest).
 2. Extract it into the game installation folder. `Start-HP2VR.cmd` must be **next to** the existing `System` folder, not inside it.
 3. For VR, start SteamVR and connect your headset.
 4. Run `Start-HP2VR.cmd` and choose **Flat** or **VR**. You can point your desktop shortcut to this file.
@@ -29,22 +33,24 @@ This repository contains the mod's C++ and Python source, build scripts, control
 
 ## Deutsch
 
-Eine inoffizielle VR-Mod für die **Windows-PC-Version von Harry Potter und die Kammer des Schreckens aus dem Jahr 2002**. Erkunde Hogwarts aus der Egoperspektive, ziele mit deinem Controller und wähle zwischen unverändertem Flat-Spiel und VR. Beide Modi nutzen dieselben Spielstände.
+Eine inoffizielle VR-Mod fÃ¼r die **Windows-PC-Version von Harry Potter und die Kammer des Schreckens aus dem Jahr 2002**. Erkunde Hogwarts aus der Egoperspektive, ziele mit deinem Controller und wÃ¤hle zwischen unverÃ¤ndertem Flat-Spiel und VR. Beide Modi nutzen dieselben SpielstÃ¤nde.
 
-**Voraussetzungen:** Eine eigene, funktionierende Spielinstallation, Windows 10/11 (x64), SteamVR und ein kompatibles Headset mit zwei Controllern. Unterstützt wird die Engine-Version `HPCos_021009_1205-1`; der Starter prüft die Kompatibilität. Neue Mod-Menüs unterstützen Deutsch und Englisch.
+**Neu in 1.0.3:** Sichtbare VR-Einstellungen im Pausenmenü, frei belegbare Controller, Kino- und Sprachoptionen sowie DE/EN-Sprachhinweise und Controller-Markierungen.
+
+**Voraussetzungen:** Eine eigene, funktionierende Spielinstallation, Windows 10/11 (x64), SteamVR und ein kompatibles Headset mit zwei Controllern. UnterstÃ¼tzt wird die Engine-Version `HPCos_021009_1205-1`; der Starter prÃ¼ft die KompatibilitÃ¤t. Neue Mod-MenÃ¼s unterstÃ¼tzen Deutsch und Englisch.
 
 **Installation**
 
-1. `HP2VR-1.0.2.zip` unter [Releases](https://github.com/SwitchCube/Harry-Potter-II-VR/releases/latest) herunterladen.
+1. `HP2VR-1.0.3.zip` unter [Releases](https://github.com/SwitchCube/Harry-Potter-II-VR/releases/latest) herunterladen.
 2. In den Installationsordner des Spiels entpacken. `Start-HP2VR.cmd` muss **neben** dem vorhandenen Ordner `System` liegen, nicht darin.
-3. Für VR zuerst SteamVR starten und das Headset verbinden.
-4. `Start-HP2VR.cmd` öffnen und **Flat** oder **VR** wählen. Dein Desktop-Symbol kannst du auf diese Datei umstellen.
+3. FÃ¼r VR zuerst SteamVR starten und das Headset verbinden.
+4. `Start-HP2VR.cmd` Ã¶ffnen und **Flat** oder **VR** wÃ¤hlen. Dein Desktop-Symbol kannst du auf diese Datei umstellen.
 
-**Updates:** Künftige Versionen erscheinen unter Releases. Beende das Spiel und befolge die Update-Anleitung der jeweiligen Version.
+**Updates:** KÃ¼nftige Versionen erscheinen unter Releases. Beende das Spiel und befolge die Update-Anleitung der jeweiligen Version.
 
-**Probleme?** `Diagnose-HP2VR.cmd` starten und die erzeugte ZIP zusammen mit einer kurzen Beschreibung und deinem Headset-Modell an ein Issue anhängen. Persönliche Pfade werden entfernt, Spielstände nicht eingepackt. Es erfolgt kein automatischer Upload.
+**Probleme?** `Diagnose-HP2VR.cmd` starten und die erzeugte ZIP zusammen mit einer kurzen Beschreibung und deinem Headset-Modell an ein Issue anhÃ¤ngen. PersÃ¶nliche Pfade werden entfernt, SpielstÃ¤nde nicht eingepackt. Es erfolgt kein automatischer Upload.
 
-Die Hardware-Kompatibilität wird weiter erprobt. Drahtlose Tonlücken oder Kompressionsartefakte können auftreten. Ausführliche Anleitungen und Lizenzen mitgelieferter Komponenten stehen im ZIP.
+Die Hardware-KompatibilitÃ¤t wird weiter erprobt. Drahtlose TonlÃ¼cken oder Kompressionsartefakte kÃ¶nnen auftreten. AusfÃ¼hrliche Anleitungen und Lizenzen mitgelieferter Komponenten stehen im ZIP.
 
-Dieses Repository enthält den C++- und Python-Quellcode der Mod, Build-Skripte, Controllerbelegungen und Tests. Zum Selbstbauen siehe [BUILDING.md](docs/BUILDING.md). Die fertige Mod zum Installieren gibt es unter **Releases**. Original-Spieldateien sind nicht enthalten. Eine eigene Spielinstallation ist erforderlich. Inoffizielles Fanprojekt ohne Verbindung zu den Rechteinhabern.
+Dieses Repository enthÃ¤lt den C++- und Python-Quellcode der Mod, Build-Skripte, Controllerbelegungen und Tests. Zum Selbstbauen siehe [BUILDING.md](docs/BUILDING.md). Die fertige Mod zum Installieren gibt es unter **Releases**. Original-Spieldateien sind nicht enthalten. Eine eigene Spielinstallation ist erforderlich. Inoffizielles Fanprojekt ohne Verbindung zu den Rechteinhabern.
 

@@ -1,0 +1,10 @@
+{
+  "id": "PC_Gil_Dueling_69",
+  "variant": "default",
+  "text": "Ziele mit deinem rechten Controller auf den Gegner. Halte den rechten Trigger, um den Zauber aufzuladen. Lass ihn los, um zu zaubern.",
+  "seconds": 7.92,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "68a43a25ab8580ca0c08b50362e7794f6dc543f56c589ce674936339941ced77"
+}

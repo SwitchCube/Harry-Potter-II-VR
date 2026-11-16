@@ -1,0 +1,10 @@
+{
+  "id": "PC_Nar_WhompTut1_81",
+  "variant": "default",
+  "text": "Drücke B am rechten Controller, um das Spielmenü zu öffnen. Im Folio Magi kannst du deine bisher gesammelten Bildkarten ansehen.",
+  "seconds": 8.72,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "82882c626532e102997faa130d3f14472b308327418fb41263bb3d6111f09ce9"
+}

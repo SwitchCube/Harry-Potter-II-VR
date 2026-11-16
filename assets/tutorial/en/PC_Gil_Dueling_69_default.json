@@ -1,0 +1,10 @@
+{
+  "id": "PC_Gil_Dueling_69",
+  "variant": "default",
+  "text": "Aim your right controller at your opponent. Hold the right trigger to charge your spell, then release it to cast.",
+  "seconds": 6.8,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "b1a9bd6be52e4fd0430ec154e1395a73c807f3e0106dbf0df3984df261d150dd"
+}

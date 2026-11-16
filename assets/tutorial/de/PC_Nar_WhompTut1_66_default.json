@@ -1,0 +1,10 @@
+{
+  "id": "PC_Nar_WhompTut1_66",
+  "variant": "default",
+  "text": "Schokofrösche geben dir neue Kraft. Außerdem schmecken sie köstlich! Halte die untere Grifftaste am linken Controller gedrückt. Dann erscheint dein Inventar an deiner linken Hand. Dort siehst du deine Energie, Bohnen und andere gesammelte Dinge.",
+  "seconds": 15.2,
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "synthetic": true,
+  "local_reference": true,
+  "sha256": "9f229ba74e170a730a3740a7f5fa5e9a9de953b8bdf14dd21dd9ab809a601060"
+}
