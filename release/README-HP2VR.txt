@@ -1,4 +1,4 @@
-Harry Potter II VR v1.0.3
+Harry Potter II VR v1.0.4
 
 DE: ZIP neben den vorhandenen System-Ordner entpacken, dann Start-HP2VR.cmd
 starten und im Hauptmenü Flat oder VR wählen. Für VR SteamVR und Headset
@@ -17,3 +17,6 @@ Details: HP2VR/README-DIAGNOSE.txt. Kein automatischer Upload / No automatic upl
 
 Künftige Updates: Neue Versionen und ihre Update-Anleitung stehen unter Releases.
 Future updates: New versions and update instructions are published under Releases.
+
+Own mod code / Eigener Mod-Code: MIT License (LICENSE).
+Scope / Geltungsbereich: LICENSING.md.

@@ -1,4 +1,4 @@
-HP2VR v1.0.3 - Diagnose / Diagnostics
+HP2VR v1.0.4 - Diagnose / Diagnostics
 
 DEUTSCH
 Das Diagnosewerkzeug ist fester Bestandteil der Mod. Es sammelt vorhandene
@@ -41,3 +41,6 @@ This also works before first launch or with damaged mod files, provided the
 bundled Python runtime still works. Alternatively: Start-HP2VR.cmd --diagnostics.
 Use --no-open to suppress opening the report folder. This does not repair the
 reported crash automatically.
+
+Own mod code / Eigener Mod-Code: MIT License (LICENSE).
+Scope / Geltungsbereich: LICENSING.md.

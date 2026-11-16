@@ -30,3 +30,7 @@ These are AI-generated replacements, not official dialogue recordings.
 Source catalogues and per-clip generation metadata are included in the source
 repository. Only the generated sound packages are included in this ZIP;
 original reference recordings and model weights are not distributed.
+
+Original mod code: MIT License, Copyright (c) 2026 SwitchCube.
+See LICENSE and LICENSING.md for the scope; third-party and audio rights
+are not relicensed by this notice.

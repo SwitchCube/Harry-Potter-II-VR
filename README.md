@@ -8,6 +8,8 @@
 
 ## English
 
+**1.0.4: MIT licensing update.** Gameplay is unchanged from 1.0.3. The original mod code is licensed under [MIT](LICENSE); see [licensing scope](LICENSING.md). Third-party components retain their own licenses; tutorial audio is excluded from this grant.
+
 An unofficial VR mod for the **2002 Windows PC version of Harry Potter and the Chamber of Secrets**. Explore Hogwarts in first person, aim with your controller, and switch between unmodified Flat gameplay and VR. Both modes share the same saved games.
 
 **New in 1.0.3:** Visible VR settings in the pause menu, remappable controllers, cinema and language options, plus DE/EN tutorial speech and controller highlights.
@@ -16,7 +18,7 @@ An unofficial VR mod for the **2002 Windows PC version of Harry Potter and the C
 
 **Install**
 
-1. Download `HP2VR-1.0.3.zip` from [Releases](https://github.com/SwitchCube/Harry-Potter-II-VR/releases/latest).
+1. Download `HP2VR-1.0.4.zip` from [Releases](https://github.com/SwitchCube/Harry-Potter-II-VR/releases/latest).
 2. Extract it into the game installation folder. `Start-HP2VR.cmd` must be **next to** the existing `System` folder, not inside it.
 3. For VR, start SteamVR and connect your headset.
 4. Run `Start-HP2VR.cmd` and choose **Flat** or **VR**. You can point your desktop shortcut to this file.
@@ -33,6 +35,8 @@ This repository contains the mod's C++ and Python source, build scripts, control
 
 ## Deutsch
 
+**1.0.4: MIT-Lizenzupdate.** Die Spielmechanik entspricht 1.0.3. Der eigene Mod-Code steht unter [MIT](LICENSE); siehe [Geltungsbereich](LICENSING.md). Fremdkomponenten behalten ihre Lizenzen; Tutorial-Sprachdateien sind von dieser Freigabe ausgenommen.
+
 Eine inoffizielle VR-Mod fÃ¼r die **Windows-PC-Version von Harry Potter und die Kammer des Schreckens aus dem Jahr 2002**. Erkunde Hogwarts aus der Egoperspektive, ziele mit deinem Controller und wÃ¤hle zwischen unverÃ¤ndertem Flat-Spiel und VR. Beide Modi nutzen dieselben SpielstÃ¤nde.
 
 **Neu in 1.0.3:** Sichtbare VR-Einstellungen im Pausenmenü, frei belegbare Controller, Kino- und Sprachoptionen sowie DE/EN-Sprachhinweise und Controller-Markierungen.
@@ -41,7 +45,7 @@ Eine inoffizielle VR-Mod fÃ¼r die **Windows-PC-Version von Harry Potter und di
 
 **Installation**
 
-1. `HP2VR-1.0.3.zip` unter [Releases](https://github.com/SwitchCube/Harry-Potter-II-VR/releases/latest) herunterladen.
+1. `HP2VR-1.0.4.zip` unter [Releases](https://github.com/SwitchCube/Harry-Potter-II-VR/releases/latest) herunterladen.
 2. In den Installationsordner des Spiels entpacken. `Start-HP2VR.cmd` muss **neben** dem vorhandenen Ordner `System` liegen, nicht darin.
 3. FÃ¼r VR zuerst SteamVR starten und das Headset verbinden.
 4. `Start-HP2VR.cmd` Ã¶ffnen und **Flat** oder **VR** wÃ¤hlen. Dein Desktop-Symbol kannst du auf diese Datei umstellen.

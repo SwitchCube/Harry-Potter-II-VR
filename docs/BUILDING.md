@@ -2,8 +2,8 @@
 
 ## English
 
-This repository contains the mod source for the v1.0.3 implementation. The
-native gameplay source matches the native inputs used for the published v1.0.3
+This repository contains the mod source for the v1.0.4 implementation. The
+native gameplay source matches the native inputs used for the published v1.0.4
 release. Publication adds portable setup helpers and removes machine-specific
 development data. Download the ready-to-use mod from [Releases](https://github.com/SwitchCube/Harry-Potter-II-VR/releases/latest).
 
@@ -46,7 +46,7 @@ bypass the checks or replace the recorded hashes to make it pass.
 python -B -m unittest discover -s tests -p 'test_*.py'
 if ($LASTEXITCODE -ne 0) { throw 'Python tests failed' }
 $build = ./scripts/Build-NativeVR.ps1 | Select-Object -Last 1
-python -B scripts/package_release.py --build $build --output dist/HP2VR-1.0.3-local.zip
+python -B scripts/package_release.py --build $build --output dist/HP2VR-1.0.4-local.zip
 if ($LASTEXITCODE -ne 0) { throw 'Packaging failed' }
 ```
 
@@ -96,7 +96,7 @@ older tags reflect their historical contents.
 
 ## Deutsch
 
-Dieses Repository enthÃ¤lt den Mod-Quellcode der Implementierung v1.0.3.
+Dieses Repository enthÃ¤lt den Mod-Quellcode der Implementierung v1.0.4.
 Die nativen Gameplay-Quelldateien entsprechen den Eingaben des verÃ¶ffentlichten
 Builds. Fertige Downloads stehen unter [Releases](https://github.com/SwitchCube/Harry-Potter-II-VR/releases/latest).
 
@@ -110,7 +110,7 @@ SpielstÃ¤nde werden nicht Ã¼bernommen. AbhÃ¤ngigkeiten werden mit festen V
 und PrÃ¼fsummen lokal heruntergeladen.
 
 Die zweite Befehlsgruppe fÃ¼hrt die Python-Tests aus, kompiliert die 32-Bit-Mod
-einschlieÃŸlich nativer Tests und erzeugt `dist/HP2VR-1.0.3-local.zip` samt
+einschlieÃŸlich nativer Tests und erzeugt `dist/HP2VR-1.0.4-local.zip` samt
 PrÃ¼fsumme. Originalspiel, SpielstÃ¤nde und persÃ¶nliche Einstellungen werden nicht
 in das Mod-Paket aufgenommen. Ein kompletter Spieldurchgang und ein echter
 Headset-Test werden damit nicht ersetzt.

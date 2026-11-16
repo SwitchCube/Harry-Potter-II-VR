@@ -3,6 +3,8 @@
 !/.gitignore
 !/.gitattributes
 !/README.md
+!/LICENSE
+!/LICENSING.md
 !/Start-*.cmd
 !/Stop-VR.cmd
 !/src/

@@ -14,7 +14,7 @@ import sys
 import time
 import uuid
 
-VERSION = '1.0.3'
+VERSION = '1.0.4'
 LANGUAGE = 'en'
 DATA_DIRECTORY = None
 REPORT_FAILURES = True

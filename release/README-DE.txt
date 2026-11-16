@@ -1,4 +1,4 @@
-HARRY POTTER II VR - v1.0.3
+HARRY POTTER II VR - v1.0.4
 
 Installation
 1. Installiere deine eigene PC-Version von Harry Potter und die Kammer des
@@ -98,7 +98,7 @@ Keine Original-EXE, Spielgrafiken, Musik, Spielstände oder persönlichen Profil
 Eine eigene Originalinstallation ist erforderlich. Inoffizielle Fan-Mod;
 keine Verbindung zu den Rechteinhabern des Spiels oder SteamVR.
 
-Neu in v1.0.3
+Neu in v1.0.4
 - Großer, sichtbarer Knopf VR-Einstellungen im ESC-/B-Pausenmenü.
 - Controller neu belegen; Kino / 3D VR, Auflösung und DE/EN-Sprache wählen.
   Die Auflösung gilt ab dem nächsten Start. Originale Tastaturoptionen bleiben.
@@ -113,3 +113,6 @@ Update von v1.0.2: Spiel schließen, HP2VR/Options.ini sichern und das komplette
 ZIP in denselben Spielordner entpacken; Mod-Dateien ersetzen. Eigene Options.ini
 bei Bedarf zurückkopieren. Gemeinsame Spielstände und Benutzerprofile liegen
 außerhalb des ZIPs und werden beim Entpacken nicht ersetzt.
+
+Own mod code / Eigener Mod-Code: MIT License (LICENSE).
+Scope / Geltungsbereich: LICENSING.md.

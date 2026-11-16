@@ -1,4 +1,4 @@
-HARRY POTTER II VR - v1.0.3
+HARRY POTTER II VR - v1.0.4
 
 Install your own PC copy of Harry Potter and the Chamber of Secrets. Make sure
 the vanilla game runs first. Extract this ZIP into its installation directory:
@@ -82,7 +82,7 @@ EXE, game assets, music, saved games or personal profiles. A separate original
 game installation is required. Unofficial fan mod, unaffiliated with the game
 rights holders or SteamVR.
 
-New in v1.0.3
+New in v1.0.4
 - Large, visible VR Settings button in the Escape/B pause menu.
 - Remap controllers and choose Cinema / 3D VR, render size and DE/EN language.
   Render-size changes apply on the next launch. Original keyboard options remain.
@@ -97,3 +97,6 @@ Updating from v1.0.2: close the game, keep a copy of HP2VR/Options.ini, and
 extract this complete ZIP into the same game directory, replacing mod files.
 Restore your Options.ini if you customized it. Shared saves and user profiles
 are outside the ZIP and are not replaced by extraction.
+
+Own mod code / Eigener Mod-Code: MIT License (LICENSE).
+Scope / Geltungsbereich: LICENSING.md.

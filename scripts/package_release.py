@@ -31,6 +31,7 @@ def package(build,output):
     for name in ('project_paths.py','shared_saves.py','menu_sessions.py','stage_test_profile.py','stage_vr_bindings.py'):add('HP2VR/scripts/'+name,'scripts/'+name)
     for name in ('portable_launcher.py','collect_diagnostics.py'):add('HP2VR/scripts/'+name,'release/'+name)
     for name in ('Options.ini','README-DE.txt','README-EN.txt','README-DIAGNOSE.txt','CONTROLLERS.txt','THIRD-PARTY.txt'):add('HP2VR/'+name,'release/'+name)
+    for name in ('LICENSE','LICENSING.md'):add('HP2VR/'+name,name)
     add('Start-HP2VR.cmd','release/Start-HP2VR.cmd')
     add('Diagnose-HP2VR.cmd','release/Diagnose-HP2VR.cmd')
     add('README-HP2VR.txt','release/README-HP2VR.txt')
